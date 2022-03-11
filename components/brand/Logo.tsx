@@ -1,0 +1,16 @@
+import Link from "next/link";
+import Initials from "./Initials";
+
+const Logo = () => {
+	return (
+		<Link href="/">
+			<a className="cursor-pointer">
+				<div className="flex gap-5 items-center text-xl">
+					<Initials />
+					<span>Alexander Durham</span>
+				</div>
+			</a>
+		</Link>
+	);
+};
+export default Logo;
