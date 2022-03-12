@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { useState } from "react";
 import MainNavigation from "./MainNavigation";
 import MenuIcon from "./MenuIcon";

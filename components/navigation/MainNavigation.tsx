@@ -42,19 +42,22 @@ const MainNavigation = ({ open, setOpen }: Props) => {
 							type: "tween",
 						}}
 						key={index}
-						className={`bg-black h-8 ${
+						className={`bg-black h-10 ${
 							index === mainLinks.length - 1 ? "rounded-bl-md" : ""
 						}`}
 					>
 						<Link href={link.href}>
-							<a className="w-full h-full flex items-center justify-center">
+							<a
+								className="w-full h-full flex items-center justify-center"
+								onClick={() => setOpen(false)}
+							>
 								{link.label}
 							</a>
 						</Link>
 					</motion.li>
 				))}
 			</ul>
-			<ul className="hidden lg:flex ">
+			<ul className="hidden lg:flex gap-8">
 				{mainLinks.map((link, index) => (
 					<li>
 						<Link href={link.href}>

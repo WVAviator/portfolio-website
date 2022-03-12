@@ -12,19 +12,19 @@ const MenuIcon = ({ open, setOpen }: Props) => {
 			<div className="sr-only">Menu</div>
 			<div className="relative">
 				<div
-					className={`w-6 h-1 bg-yellow-400 rounded-sm absolute ${
+					className={`w-6 h-1 bg-cyan-50 rounded-sm absolute ${
 						open
 							? "top-0 rotate-45 transition-top-then-rotate"
 							: "top-2 rotate-0 transition-rotate-then-top"
 					}`}
 				></div>
 				<div
-					className={`w-6 h-1 bg-yellow-400 rounded-sm transition-opacity duration-0 delay-150 ${
+					className={`w-6 h-1 bg-cyan-50 rounded-sm transition-opacity duration-0 delay-150 ${
 						open ? "opacity-0" : "opacity-100"
 					}`}
 				></div>
 				<div
-					className={`w-6 h-1 bg-yellow-400 rounded-sm absolute ${
+					className={`w-6 h-1 bg-cyan-50 rounded-sm absolute ${
 						open
 							? "top-0 -rotate-45 transition-top-then-rotate"
 							: "-top-2 rotate-0 transition-rotate-then-top"
