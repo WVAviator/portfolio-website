@@ -33,12 +33,20 @@ const mainLinks: NavLink[] = [
 const MainNavigation = ({ open, setOpen }: Props) => {
 	return (
 		<>
-			<ul className="absolute -z-10 text-center w-[50vw] right-0 top-20 lg:hidden">
+			<ul
+				id="mobilemenu"
+				aria-labelledby="menubutton"
+				role="menu"
+				className="absolute -z-10 text-center w-[50vw] right-0 top-20 lg:hidden"
+			>
 				{mainLinks.map((link, index) => (
 					<motion.li
+						role="none"
 						animate={{ x: open ? 0 : "100%" }}
 						transition={{
-							delay: index * 0.05,
+							delay: open
+								? index * 0.05
+								: (mainLinks.length - 1 - index) * 0.05,
 							type: "tween",
 						}}
 						key={index}
@@ -50,6 +58,7 @@ const MainNavigation = ({ open, setOpen }: Props) => {
 							<a
 								className="w-full h-full flex items-center justify-center"
 								onClick={() => setOpen(false)}
+								role="menuitem"
 							>
 								{link.label}
 							</a>
