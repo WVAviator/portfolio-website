@@ -37,7 +37,7 @@ const MainNavigation = ({ open, setOpen }: Props) => {
 				id="mobilemenu"
 				aria-label="main menu"
 				role="menu"
-				className="absolute -z-10 text-center w-[50vw] right-0 top-20 lg:hidden"
+				className="absolute -z-10 min-w-[25vw] right-0 top-20 lg:hidden"
 			>
 				{mainLinks.map((link, index) => (
 					<motion.li
@@ -47,16 +47,17 @@ const MainNavigation = ({ open, setOpen }: Props) => {
 							delay: open
 								? index * 0.05
 								: (mainLinks.length - 1 - index) * 0.05,
+							ease: [0.29, 0.98, 0.87, 1.09],
 							type: "tween",
 						}}
 						key={index}
-						className={`bg-black h-10 ${
+						className={`relative w-[110%] flex group cursor-pointer justify-end items-center py-3 pl-10 pr-16 bg-black hover:text-primary-400 active:text-primary-600 transition-colors duration-200 ${
 							index === mainLinks.length - 1 ? "rounded-bl-md" : ""
 						}`}
 					>
 						<Link href={link.href}>
 							<a
-								className="w-full h-full flex items-center justify-center"
+								className="before:absolute before:right-11 before:top-[10%] before:w-1 before:h-[80%] before:bg-primary-400 before:pointer-events-none before:opacity-0 group-hover:before:opacity-100 group-active:before:scale-y-95 before:transition-all before:duration-200"
 								onClick={() => setOpen(false)}
 								role="menuitem"
 							>

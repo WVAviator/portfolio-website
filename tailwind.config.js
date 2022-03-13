@@ -20,6 +20,9 @@ module.exports = {
 			fontFamily: {
 				sans: ["Lato", ...defaultTheme.fontFamily.sans],
 			},
+			screens: {
+				xsm: "480px",
+			},
 		},
 	},
 	plugins: [],

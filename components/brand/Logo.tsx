@@ -7,7 +7,9 @@ const Logo = () => {
 			<a className="cursor-pointer">
 				<div className="flex gap-5 items-center text-xl">
 					<Initials />
-					<span className="text-primary-400">Alexander Durham</span>
+					<span className="text-primary-400 hidden xsm:block">
+						Alexander Durham
+					</span>
 				</div>
 			</a>
 		</Link>
