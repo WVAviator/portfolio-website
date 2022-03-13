@@ -35,7 +35,7 @@ const MainNavigation = ({ open, setOpen }: Props) => {
 		<>
 			<ul
 				id="mobilemenu"
-				aria-labelledby="menubutton"
+				aria-label="main menu"
 				role="menu"
 				className="absolute -z-10 text-center w-[50vw] right-0 top-20 lg:hidden"
 			>
@@ -68,9 +68,11 @@ const MainNavigation = ({ open, setOpen }: Props) => {
 			</ul>
 			<ul className="hidden lg:flex gap-8">
 				{mainLinks.map((link, index) => (
-					<li>
+					<li className="hover:text-primary-400 cursor-pointer group transition-all duration-200 relative active:text-primary-600">
 						<Link href={link.href}>
-							<a className="">{link.label}</a>
+							<a className=" group-active:before:scale-x-90 before:absolute before:bg-primary-400 before:h-1 before:w-full before:top-12 before:opacity-0 group-hover:before:opacity-100 before:pointer-events-none before:transition-all before:duration-200">
+								{link.label}
+							</a>
 						</Link>
 					</li>
 				))}
