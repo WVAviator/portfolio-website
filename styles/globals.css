@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+	.page-container {
+		@apply max-w-7xl mx-auto px-6 py-3;
+	}
+}
+
 @layer utilities {
 	.transition-top-then-rotate {
 		transition: transform 150ms 150ms ease-in-out, top 150ms 0ms ease-in-out;

@@ -1,10 +1,12 @@
 import Link from "next/link";
+import react from "react";
 
 interface Props {
 	href: string;
 	variant?: "filled" | "outlined" | "ghost";
 	children?: React.ReactNode;
 	className?: string;
+	endIcon: react.ReactElement<any, any> | null;
 }
 
 const Button = ({
@@ -12,6 +14,7 @@ const Button = ({
 	variant = "filled",
 	children = "",
 	className = "",
+	endIcon = null,
 }: Props) => {
 	const variantClasses = {
 		filled:
@@ -26,11 +29,18 @@ const Button = ({
 			<Link href={href}>
 				<a
 					className={
-						`${variantClasses[variant]} transition-all duration-200 ease-in-out py-2 px-4 rounded active:scale-95 focus:ring-2 focus:ring-primary-300/50 ` +
+						`${variantClasses[variant]} transition-all duration-200 ease-in-out py-2 px-4 rounded active:scale-95 focus:ring-2 focus:ring-primary-300/50 whitespace-nowrap ` +
 						className
 					}
 				>
-					{children}
+					<span className="flex items-center">
+						{children}
+
+						{endIcon &&
+							react.cloneElement(endIcon, {
+								className: "w-5 h-5 ml-2 text-primary-900",
+							})}
+					</span>
 				</a>
 			</Link>
 		</>
