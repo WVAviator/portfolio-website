@@ -6,10 +6,10 @@ const Hero = () => {
 	return (
 		<section>
 			<div className="flex flex-wrap items-center justify-center page-container">
-				<div>
+				<div className="p-6">
 					<HeroHeading />
 				</div>
-				<div>
+				<div className="p-6">
 					<HeroLaptop />
 				</div>
 			</div>

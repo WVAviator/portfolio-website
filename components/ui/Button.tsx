@@ -38,7 +38,7 @@ const Button = ({
 
 						{endIcon &&
 							react.cloneElement(endIcon, {
-								className: "w-5 h-5 ml-2 text-primary-900",
+								className: "w-5 h-5 ml-2",
 							})}
 					</span>
 				</a>
