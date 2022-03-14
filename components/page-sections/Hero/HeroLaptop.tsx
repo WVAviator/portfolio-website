@@ -8,9 +8,9 @@ import atomicRunningImage from "/public/images/portfolio/atomic-running-sports-d
 
 const HeroLaptop = () => {
 	return (
-		<div className="relative">
+		<div className="relative max-w-[100rem]">
 			<Image src={laptop} />
-			<div className="absolute  w-[74.2%] aspect-[8/5] top-[4.1%] left-[13%] ">
+			<div className="absolute  w-[74.1%] aspect-[16/10.1] top-[4.1%] left-[13.1%]">
 				<ContainedSlideshow
 					slides={[
 						{

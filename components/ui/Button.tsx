@@ -6,7 +6,7 @@ interface Props {
 	variant?: "filled" | "outlined" | "ghost";
 	children?: React.ReactNode;
 	className?: string;
-	endIcon: react.ReactElement<any, any> | null;
+	endIcon?: react.ReactElement<any, any> | null;
 }
 
 const Button = ({

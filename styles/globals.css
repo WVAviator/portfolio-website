@@ -4,7 +4,7 @@
 
 @layer base {
 	.page-container {
-		@apply max-w-7xl mx-auto px-6 py-3;
+		@apply max-w-[85rem] mx-auto px-6 py-3;
 	}
 }
 
