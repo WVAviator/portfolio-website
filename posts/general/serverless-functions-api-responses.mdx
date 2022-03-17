@@ -1,0 +1,27 @@
+---
+title: Serverless Functions and API Responses
+description: Where you choose to send an API response can affect the execution order of your serverless functions.
+imageUrl: "/images/blog/serverless-functions-api-responses/res-send.png"
+datePosted: 2022-03-17
+dateUpdated: 2022-03-17
+---
+
+import stripeDocs from "/images/blog/serverless-functions-api-responses/stripe-docs-image.png"
+
+After several hours of debugging I finally figured out why my Stripe webhook API call wasn't working - and it has to do with serverless functions and API responses. 
+
+I had set up a Stripe Webhook to listen to the payment_intent.succeeded event, and send a POST request to my endpoint whenever the event was called. This is the recommended way to handle post-payment events, since handling them client-side can lead t errors (for example if the user closes the browser before reaching the payment confirmation page where the logic is executed). With my endpoint, the goal was to extract the metadata (which contains an array of the products pruchased, as well as information such as name, email address, address, etc.) I had previously stored in the Stripe PaymentIntent in the prepayment process, send that information to a Google sheets file for the client, and send out order confirmation emails via Sendgrid. 
+
+I made sure to follow Stripe's documentation very closely for both my Webhook response and for accepting payment. In the Stripe Webhook documentation they say:
+
+<Image src={stripeDocs} alt="Image of Stripe documentation excerpt stating, Your endpoint must quickly return a successful status code (2xx) prior to any complex logic that could cause a timeout. For example, you must return a 200 response before updating a customer’s invoice as paid in your accounting system." />
+
+So, logically, I was throwing up a res.send(200) as soon as I had the PaymentIntent, and then continued on with the rest of my code to do the things I outlined above. Apparently this suggestion - returning a response early before executing logic with the data - is not exclusive to Stripe. Other services, such as Slack, also recommend immediately returning a response before executing any logic.
+
+On my local machine, the whole process worked great. I could simulate Webhook events from the Stripe CLI, the rows were added to the spreadsheet successfully after every test payment, and the emails were being sent in a timely manner. However, once I pushed my code to Vercel preview, it all just stopped working. The weird part was that I wasn't getting any errors. So I started adding logs everywhere and repeatedly making commits to update the preview site and watch the live function logs in Vercel.
+
+After a few hours and a verbose console.log statement after just about every line of code, it _still_ just looked like the function stopped executing right in the middle of saving the spreadsheet data. No errors or anything. After several cycles of hypothesizing and testing, I finally figured out that the serverless function was just stopping cold after the res.send(200). The only reason the code execution was stopping in the middle of saving the spreadsheet data was because that was the first "await" in the execution path. So I moved the res.send(200) to the end of it all - and finally got to breathe a nice sigh of relief when it all worked again.  
+
+Some Googling around indicates that not too many other people have had this problem, although there is [this discussion](https://github.com/vercel/next.js/discussions/12573) about it, as well as my [Reddit post](https://www.reddit.com/r/nextjs/comments/tasbhu/serverless_api_functions_stop_executing_after/) on the subject, with the general consensus being that the best way to handle a situation like this would be to call another serverless function to do the complex logic. For now, however, since my logging data to Google Sheets and sending an email via Sendgrid is not enough processing to cause a timeout for Stripe, I'll probably just leave it alone. 
+
+So take note and save yourself from hours of debugging - any code you write in a serverless function after a res.send() or a res.json() or anything else that calls res.end() under the hood might not be executed, especially if it's asynchronous. If documentation for the service you are using requires an immediate response before any logic, either start another serverless function with your logic, or cross your fingers that it executes quickly enough to avoid a timeout.

@@ -2,7 +2,7 @@ import path from "path";
 import fs from "fs";
 import matter from "gray-matter";
 import { PostMeta } from "./types/PostMeta";
-
+import { serialize } from 'next-mdx-remote/serialize';
 
 /**
  * Returns post meta for all posts in the specified subdirectory of the /posts folder.
@@ -34,16 +34,18 @@ export const getPostMetas = (category: string) => {
 
 /**
  * Fetch a list of static paths for all mdx files that exist in /posts and all its subdirectories
- * @returns An array of static paths to be passed into getStaticPaths
+ * @returns An array of names for use in static path references
  */
 export const getAllStaticPaths = () => {
-    let paths: { params: { slug: string } }[] = [];
-    const directories = fs.readdirSync(path.join(process.cwd(), "posts")).filter(file => file.isDirectory());
-    directories.forEach(directory => {
-        paths = [...paths, getPaths(directory.name)];
-    })
-    return paths;
-}
+	let paths: { params: { slug: string } }[] = [];
+	const directories = fs
+		.readdirSync(path.join(process.cwd(), "posts"))
+		.filter((file) => file.isDirectory());
+	directories.forEach((directory) => {
+		paths = [...paths, getPaths(directory.name)];
+	});
+	return paths;
+};
 
 const getPaths = (category: string) => {
 	let paths: { params: { slug: string } }[] = [];
@@ -65,18 +67,29 @@ const getPaths = (category: string) => {
  * Gets a specific MDX post, including all markdown and metadata, based on the post name and subdirectory.
  * @param category The subdirectory from which to fetch the posts.
  * @param fileName The name of the post as it was passed through context
- * @returns A .mdx file that contains all metadata and markdown data to be parsed into a post
+ * @returns All metadata and markdown data to be parsed into a post
  */
-export const getMdxFile = (category: string, fileName: string) => {
-	const data = fs.readFileSync(
+export const getPostData = async (category: string, fileName: string) => {
+	const file = fs.readFileSync(
 		path.join(process.cwd(), "posts", category, `${fileName}.mdx`),
-		{
-			encoding: "utf-8",
-		}
+		"utf-8"
 	);
-	if (data) {
-		return data;
-	} else {
-		return null;
-	}
+
+    const { content, data: postMeta } = matter(file);
+    const postData = await serialize(content);
+
+    return { postMeta, postData };
 };
+
+
+
+
+res.send(200);
+
+
+
+
+
+
+
+
