@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@heroicons/react": "^1.0.6",
+    "@mdx-js/loader": "^2.1.0",
+    "@mdx-js/react": "^2.1.0",
     "@next/mdx": "^12.1.0",
     "framer-motion": "^6.2.8",
     "fs": "^0.0.1-security",

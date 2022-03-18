@@ -1,10 +1,13 @@
+import { resolveHref } from "next/dist/shared/lib/router/router";
 import Link from "next/link";
 
 interface Props extends React.HTMLAttributes<HTMLAnchorElement> {
 	href: string;
 }
 
-const MDXLink = ({ href, ...rest }: Props) => {
+const MDXLink = (props: Props) => {
+	const { href, ...rest } = props;
+
 	const isInternalLink = href && (href.startsWith("/") || href.startsWith("#"));
 
 	return isInternalLink ? (

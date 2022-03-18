@@ -1,5 +1,6 @@
 ---
 title: Typescript
+description: My experience and development journey with Typescript.
 imageUrl: /images/blog/typescript/typescript-logo.png
 datePosted: 2022-03-17
 dateUpdated: 2022-03-17
@@ -7,7 +8,7 @@ dateUpdated: 2022-03-17
 
 Having come from programming in C# using design principles and well-structured, strongly-typed, and component-based patterns, I found Javascript to be particularly frustrating. The fact that you could assign a variable a string and then later set it to a number horrified me. I hadn't even programmed much more than a basic document query and I already deeply missed my interfaces, generics, and class scoping - not to mention the amazing intellisense, autocompletion, and code suggestions provided by the Jetbrains Rider IDE.
 
-Enter Typescript - a solution to _most_ of the issues I had with Javascript. I could now type my JS objects, and work with them safely knowing that any syntax errors or basic typos would flash a warning at me sometime before I tried to test it. Additionally, I now get some intellisense based on the types I'm working with, and that makes the development process much easier - even if there is a bit more setup involved anytime I want to do something simple like declare props for a React component (mainly because I always intentionally set the "no implicit any" option to true). I can also use design patterns again - my favorite design pattern resource, [Refactoring Guru](https://refactoring.guru), even has examples specifically for Typescript (but not for vanilla JS, go figure). 
+Enter Typescript - a solution to _most_ of the issues I had with Javascript. I could now type my JS objects, and work with them safely knowing that any syntax errors or basic typos would flash a warning at me sometime before I tried to test it. Additionally, I now get some intellisense based on the types I'm working with, and that makes the development process much easier - even if there is a bit more setup involved anytime I want to do something simple like declare props for a React component (mainly because I always intentionally set the "no implicit any" option to true). I can also use design patterns again - my favorite design pattern resource, [Refactoring Guru](https://refactoring.guru), even has examples specifically for Typescript (but not for vanilla JS, go figure).
 
 I learned most of what I know about Typescript from the [Typescript: The Complete Developer's Guide](https://www.udemy.com/course/typescript-the-complete-developers-guide/) Udemy course by [Stephen Grider](https://www.udemy.com/user/sgslo/), and from the Youtube series [No BS TS](https://youtube.com/playlist?list=PLNqp92_EXZBJYFrpEzdO2EapvU0GOJ09n) by [Jack Herrinton](https://www.jackherrington.com/). Both resources have been excellent and I highly recommend them to anyone looking to learn Typescript.
 
@@ -25,7 +26,7 @@ I was able to perform custom logic during the conversion between types, such as 
 
 Aside from interfacing types from external APIs, another awesome use case I found for Typescript in that same project was interfacing for types that could be saved to a Google Sheets spreadsheet. The ["google-spreadsheet"](https://www.npmjs.com/package/google-spreadsheet) package I used to read from and write to Google Sheets (a feature requested by the organization) would only accept types of the following interface for spreadsheet row data:
 ![[Pasted image 20220309143946.png]]
-Which is essentially a key-value pair to map the object to a spreadsheet row. When creating the data to store in the spreadsheet, I then used interfaces that extended this interface as a generic type argument to the functions that read and write the data. 
+Which is essentially a key-value pair to map the object to a spreadsheet row. When creating the data to store in the spreadsheet, I then used interfaces that extended this interface as a generic type argument to the functions that read and write the data.
 
 (Note: I used bracket notation for these interfaces as a personal preference, since I wanted the resulting spreadsheet headers to appear more human-readable and not be lowercase or camelCase).
 ![[Pasted image 20220309144355.png]]

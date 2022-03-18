@@ -17,16 +17,28 @@ const components = {
 };
 
 const Post = ({ postMeta, postData }: Props) => {
+	const formattedDate = new Date(postMeta.dateUpdated).toLocaleDateString(
+		"en-US"
+	);
+
 	return (
 		<>
 			<section>
-				<h1>{postMeta.title}</h1>
-				<p>
-					Updated <time>{postMeta.dateUpdated}</time>
-				</p>
+				<div className="page-container">
+					<div className="relative hidden md:block float-left w-12 aspect-[1]">
+						<Image src={postMeta.imageUrl} alt={postMeta.title} layout="fill" />
+					</div>
+					<h1 className="text-lg font-semibold">{postMeta.title}</h1>
+
+					<p>
+						Updated <time>{formattedDate}</time>
+					</p>
+				</div>
 			</section>
 			<section>
-				<MDXRemote {...postData} components={components} />
+				<div className="page-container">
+					<MDXRemote {...postData} components={components} />
+				</div>
 			</section>
 		</>
 	);
@@ -42,6 +54,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 	const slug = path[1];
 
 	const post = await getPostData(category, slug);
+
 	return {
 		props: {
 			...post,
