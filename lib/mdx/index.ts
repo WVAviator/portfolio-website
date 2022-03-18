@@ -70,15 +70,9 @@ export const getPostData = async (category: string, fileName: string) => {
 
 	const postData = await serialize(content);
 
-	const postMeta: PostMeta = {
-		title: data.title,
-		description: data.description,
-		imageUrl: data.imageUrl,
-		datePosted: data.datePosted.toString(),
-		dateUpdated: data.dateUpdated.toString(),
-	};
-
-	console.log(postMeta);
+	const postMeta = data as PostMeta;
+	postMeta.datePosted = data.datePosted.toString();
+	postMeta.dateUpdated = data.dateUpdated.toString();
 
 	return { postMeta, postData };
 };
