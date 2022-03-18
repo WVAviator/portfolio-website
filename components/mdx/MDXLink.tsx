@@ -1,14 +1,19 @@
 import Link from "next/link";
 
-const MDXLink = (props) => {
-	const href = props.href;
+interface Props extends React.HTMLAttributes<HTMLAnchorElement> {
+	href: string;
+}
+
+const MDXLink = ({ href, ...rest }: Props) => {
 	const isInternalLink = href && (href.startsWith("/") || href.startsWith("#"));
 
 	return isInternalLink ? (
 		<Link href={href}>
-			<a {...props}>{props.children}</a>
+			<a {...rest} />
 		</Link>
 	) : (
-		<a target="_blank" rel="noopener noreferrer" {...props} />
+		<a target="_blank" rel="noopener noreferrer" {...rest} />
 	);
 };
+
+export default MDXLink;

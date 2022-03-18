@@ -1,8 +1,8 @@
 import path from "path";
 import fs from "fs";
 import matter from "gray-matter";
-import { PostMeta } from "./types/PostMeta";
-import { serialize } from 'next-mdx-remote/serialize';
+import { PostMeta } from "../types/PostMeta";
+import { serialize } from "next-mdx-remote/serialize";
 
 /**
  * Returns post meta for all posts in the specified subdirectory of the /posts folder.
@@ -23,44 +23,35 @@ export const getPostMetas = (category: string) => {
 					}
 				);
 				const { content, data } = matter(source);
-				posts.push({ ...data, slug: file.replace(".mdx", "") } as PostMeta);
+				posts.push({ ...data } as PostMeta);
 			}
 		});
-		return posts;
-	} else {
-		return null;
 	}
+	return posts;
 };
 
 /**
  * Fetch a list of static paths for all mdx files that exist in /posts and all its subdirectories
- * @returns An array of names for use in static path references
+ * @returns An array of path names for use in static path references
  */
 export const getAllStaticPaths = () => {
-	let paths: { params: { slug: string } }[] = [];
-	const directories = fs
-		.readdirSync(path.join(process.cwd(), "posts"))
-		.filter((file) => file.isDirectory());
+	//get all directories in posts
+	const directories = fs.readdirSync(path.join(process.cwd(), "posts"));
+	//for each directory, generate a static path for each mdx file
+	let paths: { params: { post: string[] } }[] = [];
 	directories.forEach((directory) => {
-		paths = [...paths, getPaths(directory.name)];
-	});
-	return paths;
-};
-
-const getPaths = (category: string) => {
-	let paths: { params: { slug: string } }[] = [];
-
-	const files = fs.readdirSync(path.join(process.cwd(), "posts", category));
-	if (files) {
+		const files = fs.readdirSync(path.join(process.cwd(), "posts", directory));
 		files.forEach((file) => {
 			if (path.extname(file) == ".mdx") {
-				paths.push({ params: { slug: file.replace(".mdx", "") } });
+				paths.push({
+					params: {
+						post: [directory, file.replace(".mdx", "")],
+					},
+				});
 			}
 		});
-		return paths;
-	} else {
-		return null;
-	}
+	});
+	return paths;
 };
 
 /**
@@ -75,21 +66,11 @@ export const getPostData = async (category: string, fileName: string) => {
 		"utf-8"
 	);
 
-    const { content, data: postMeta } = matter(file);
-    const postData = await serialize(content);
+	const { content, data } = matter(file);
 
-    return { postMeta, postData };
+	const postData = await serialize(content);
+
+	const postMeta = data as PostMeta;
+
+	return { postMeta, postData };
 };
-
-
-
-
-res.send(200);
-
-
-
-
-
-
-
-

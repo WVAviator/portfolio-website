@@ -1,6 +1,13 @@
 import { getPostMetas } from "../../lib/mdx";
+import { PostMeta } from "../../lib/types/PostMeta";
 
-const BlogHomepage = ({ generalPosts, projectsPosts, toolsPosts }) => {
+interface Props {
+	generalPosts: PostMeta[];
+	projectsPosts: PostMeta[];
+	toolsPosts: PostMeta[];
+}
+
+const BlogHomepage = ({ generalPosts, projectsPosts, toolsPosts }: Props) => {
 	return <div>Blogs</div>;
 };
 
