@@ -34,6 +34,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 	const post = await getPostData(category, slug);
 
+	const components = {};
+
 	return {
 		props: {
 			...post,

@@ -23,7 +23,13 @@ export const getPostMetas = (category: string) => {
 					}
 				);
 				const { content, data } = matter(source);
-				posts.push({ ...data } as PostMeta);
+				const postMeta = data as PostMeta;
+				postMeta.datePosted = data.datePosted.toString();
+				postMeta.dateUpdated = data.dateUpdated.toString();
+				postMeta.slug = file;
+				postMeta.category = category;
+
+				posts.push(postMeta);
 			}
 		});
 	}
@@ -71,8 +77,11 @@ export const getPostData = async (category: string, fileName: string) => {
 	const postData = await serialize(content);
 
 	const postMeta = data as PostMeta;
+
 	postMeta.datePosted = data.datePosted.toString();
 	postMeta.dateUpdated = data.dateUpdated.toString();
+	postMeta.slug = fileName;
+	postMeta.category = category;
 
 	return { postMeta, postData };
 };

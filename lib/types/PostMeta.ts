@@ -6,4 +6,6 @@ export interface PostMeta {
 	headerImageUrl: string;
 	datePosted: string;
 	dateUpdated: string;
+	slug: string;
+	category: string;
 }
