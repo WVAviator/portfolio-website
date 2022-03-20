@@ -10,12 +10,16 @@ const MDXLink = (props: Props) => {
 
 	const isInternalLink = href && (href.startsWith("/") || href.startsWith("#"));
 
-	return isInternalLink ? (
-		<Link href={href}>
-			<a {...rest} />
-		</Link>
-	) : (
-		<a target="_blank" rel="noopener noreferrer" {...rest} />
+	return (
+		<span className="cursor-pointer">
+			{isInternalLink ? (
+				<Link href={href}>
+					<a {...rest} />
+				</Link>
+			) : (
+				<a target="_blank" rel="noopener noreferrer" {...rest} />
+			)}
+		</span>
 	);
 };
 

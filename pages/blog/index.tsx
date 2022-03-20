@@ -10,10 +10,10 @@ interface Props {
 
 const BlogHomepage = ({ generalPosts, projectsPosts, toolsPosts }: Props) => {
 	return (
-		<div>
-			<BlogHomeSection posts={generalPosts} title="General" />
+		<div className="page-container">
 			<BlogHomeSection posts={projectsPosts} title="Projects" />
 			<BlogHomeSection posts={toolsPosts} title="Tools" />
+			<BlogHomeSection posts={generalPosts} title="General" />
 		</div>
 	);
 };

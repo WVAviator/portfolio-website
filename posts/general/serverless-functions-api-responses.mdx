@@ -8,17 +8,16 @@ datePosted: 2022-03-17
 dateUpdated: 2022-03-19
 ---
 
-import stripeDocs from "/images/blog/serverless-functions-api-responses/stripe-docs-image.png";
-
 After several hours of debugging I finally figured out why my Stripe webhook API call wasn't working - and it has to do with serverless functions and API responses.
 
 I had set up a Stripe Webhook to listen to the payment_intent.succeeded event, and send a POST request to my endpoint whenever the event was called. This is the recommended way to handle post-payment events, since handling them client-side can lead t errors (for example if the user closes the browser before reaching the payment confirmation page where the logic is executed). With my endpoint, the goal was to extract the metadata (which contains an array of the products pruchased, as well as information such as name, email address, address, etc.) I had previously stored in the Stripe PaymentIntent in the prepayment process, send that information to a Google sheets file for the client, and send out order confirmation emails via Sendgrid.
 
 I made sure to follow Stripe's documentation very closely for both my Webhook response and for accepting payment. In the Stripe Webhook documentation they say:
 
-<Image
-	src={stripeDocs}
+<MDXImage
+	src={"/images/blog/serverless-functions-api-responses/stripe-docs-image.png"}
 	alt="Image of Stripe documentation excerpt stating, Your endpoint must quickly return a successful status code (2xx) prior to any complex logic that could cause a timeout. For example, you must return a 200 response before updating a customer’s invoice as paid in your accounting system."
+	className="aspect-[6.5]"
 />
 
 So, logically, I was throwing up a res.send(200) as soon as I had the PaymentIntent, and then continued on with the rest of my code to do the things I outlined above. Apparently this suggestion - returning a response early before executing logic with the data - is not exclusive to Stripe. Other services, such as Slack, also recommend immediately returning a response before executing any logic.

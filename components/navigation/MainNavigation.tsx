@@ -21,7 +21,7 @@ const mainLinks: NavLink[] = [
 		label: "Portfolio",
 	},
 	{
-		href: "/",
+		href: "/blog",
 		label: "Blog",
 	},
 	{

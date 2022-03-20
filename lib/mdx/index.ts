@@ -26,7 +26,7 @@ export const getPostMetas = (category: string) => {
 				const postMeta = data as PostMeta;
 				postMeta.datePosted = data.datePosted.toString();
 				postMeta.dateUpdated = data.dateUpdated.toString();
-				postMeta.slug = file;
+				postMeta.slug = file.replace(".mdx", "");
 				postMeta.category = category;
 
 				posts.push(postMeta);
