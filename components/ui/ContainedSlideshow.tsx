@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, { useRef } from "react";
+import { useRef } from "react";
 import useCycledIndex from "../../lib/hooks/useCycledIndex";
 import { SlideshowImage } from "../../lib/types/SlideshowImage";
 
