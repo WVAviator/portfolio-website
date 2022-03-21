@@ -7,8 +7,12 @@
   "author": "Alexander Durham <wvaviator@gmail.com>",
   "license": "UNLICENSED",
   "scripts": {
-    "start": "sanity start",
-    "build": "sanity build"
+    "dev": "next dev",
+    "prebuild": "echo 'Building Sanity to public/studio' && cd studio && yarn && npx @sanity/cli build ../public/studio -y && echo 'Done'",
+    "build": "next build",
+    "start": "next start",
+    "sanity": "cd studio && sanity start",
+    "lint": "next lint"
   },
   "keywords": [
     "sanity"
