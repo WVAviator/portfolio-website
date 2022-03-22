@@ -1,32 +1,17 @@
 import { GetStaticPaths, GetStaticProps } from "next";
-import PostHeader from "../../components/blog/PostHeader";
 import sanityClient from "../../lib/sanity";
 import { BlogPost } from "/types";
-import SanityImage from "../../components/sanity/SanityImage";
-import SanityLink from "../../components/sanity/SanityLink";
+import BlogPost from "../../components/blog/BlogPost";
+
 
 interface Props {
 	post: BlogPost;
 }
 
-const components = {
-	types: {
-		image: ({value}) => <SanityImage sanityImage={value} />,
-	},
-	marks: {
-		link: ({children, value}) => <SanityLink value={value} children={children} />,
-	}
-}
-
 const Post = ({ post }: Post) => {
 	return (
 		<div className="page-container">
-			<section>
-				<PostHeader updated={post._updatedAt} title={post.title} />
-			</section>
-			<section>
-				<PortableText value={post.body} components={components} />
-			</section>
+			<div className="flex"><BlogPost post={post} /><section aria-label="sidebar" className="hidden md:flex flex-col items-center">Sidebar</section></div>
 		</div>
 	);
 };
@@ -37,7 +22,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 		title,
 		description,
 		slug,
-		techStack,
+		relatedTechnologies,
+		relatedProjects,
 		header,
 		mainImage,
 		publishedAt,

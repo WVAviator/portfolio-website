@@ -23,10 +23,16 @@ export default {
 			},
 		},
 		{
-			name: "techStack",
+			name: "relatedTechnologies",
 			title: "Related Technologies",
 			type: "array",
 			of: [{ type: "reference", to: { type: "technology" } }],
+		},
+		{
+			name: "relatedProjects",
+			title: "Related Projects",
+			type: "array",
+			of: [{ type: "reference", to: { type: "project" } }],
 		},
 		{
 			name: "header",
@@ -57,11 +63,6 @@ export default {
 					title: "Description",
 				},
 			],
-		},
-		{
-			name: "publishedAt",
-			title: "Published at",
-			type: "datetime",
 		},
 		{
 			name: "body",

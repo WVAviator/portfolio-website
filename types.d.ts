@@ -43,7 +43,7 @@ export interface Project extends SanityPost {
 }
 
 export interface BlogPost extends SanityPost {
-	publishedAt: string;
-	techStack: Technology[];
+	relatedTechnologies: Technology[];
+	relatedProjects: Project[];
 }
 
