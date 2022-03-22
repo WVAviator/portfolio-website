@@ -7,7 +7,7 @@
 		"build": "echo 'Building Sanity to public/studio' && cd studio && sanity build ../public/studio -y && cd .. && next build",
 		"start": "vercel dev",
 		"lint": "next lint",
-		"postinstall": "lerna bootstrap"
+		"postinstall": "cd studio && yarn"
 	},
 	"dependencies": {
 		"@heroicons/react": "^1.0.6",
