@@ -1,30 +1,35 @@
 import sanityClient from "../../lib/sanity";
+import { BlogPost } from "/types";
 
-interface Props {}
+interface Props {
+	posts: BlogPost[];
+}
 
-const BlogHomepage = () => {
-	return <div className="page-container"></div>;
+const BlogHomepage = ({ posts }: Props) => {
+	return (
+		<div className="page-container">
+			<BlogHomeSection posts={posts} />
+		</div>
+	);
 };
 
 export const getStaticProps = async () => {
 	const query = `
-	*[_type == "post"] | order(_createdAt desc) {
+	*[_type == "post"] | order(_updatedAt desc) {
 		title,
 		slug,
-		subtitle,
+		description,
 		mainImage,
 	}
 	`;
 
-	const posts = await sanityClient.fetch(query);
-
-	console.log(posts);
+	const posts: BlogPost[] = await sanityClient.fetch(query);
 
 	return {
 		props: {
 			posts,
 		},
-		revalidate: 10,
+		revalidate: 600,
 	};
 };
 

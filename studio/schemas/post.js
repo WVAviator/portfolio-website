@@ -9,8 +9,8 @@ export default {
 			type: "string",
 		},
 		{
-			name: "subtitle",
-			title: "Subtitle",
+			name: "description",
+			title: "Description",
 			type: "string",
 		},
 		{
@@ -29,12 +29,34 @@ export default {
 			of: [{ type: "reference", to: { type: "technology" } }],
 		},
 		{
+			name: "header",
+			title: "Header Image",
+			type: "image",
+			options: {
+				hotspot: true,
+			},
+			fields: [
+				{
+					name: "alt",
+					type: "string",
+					title: "Description",
+				},
+			],
+		},
+		{
 			name: "mainImage",
 			title: "Main image",
 			type: "image",
 			options: {
 				hotspot: true,
 			},
+			fields: [
+				{
+					name: "alt",
+					type: "string",
+					title: "Description",
+				},
+			],
 		},
 		{
 			name: "publishedAt",
