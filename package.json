@@ -10,7 +10,7 @@
 		"concurrently": "^7.0.0",
 		"eslint": "8.10.0",
 		"eslint-config-next": "12.1.0",
-		"lerna": "^3.22.1",
+		"@lerna/bootstrap": "^4.0.0",
 		"postcss": "^8.4.8",
 		"tailwindcss": "^3.0.23",
 		"typescript": "4.6.2"
@@ -19,7 +19,6 @@
 		"dev": "concurrently \"next --port $PORT\" \"cd studio && sanity start\"",
 		"build": "echo 'Building Sanity to public/studio' && cd studio && sanity build ../public/studio -y && cd .. && next build",
 		"start": "vercel dev",
-		"install": "yarn && cd studio && yarn",
 		"postinstall": "lerna bootstrap"
 	},
 	"dependencies": {
