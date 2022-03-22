@@ -1,5 +1,5 @@
 import sanityClient from "../../lib/sanity";
-import { BlogPost } from "/types";
+import { BlogPost } from "../../types";
 
 interface Props {
 	posts: BlogPost[];

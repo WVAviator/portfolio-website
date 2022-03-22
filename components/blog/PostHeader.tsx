@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { PostMeta } from "../../lib/types/PostMeta";
 
 interface Props {
 	updated: string;

@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { PostMeta } from "../../lib/types/PostMeta";
-import { BlogPost } from "/types";
+import { BlogPost } from "../../types";
 
 interface Props {
 	posts: BlogPost[];

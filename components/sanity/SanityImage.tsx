@@ -1,4 +1,4 @@
-import SanityImage from "/types";
+import SanityImageAsset from "../../types";
 import sanityClient from "../../lib/sanity";
 import Image, { ImageProps } from "next/image";
 import { useNextSanityImage } from "next-sanity-image";
