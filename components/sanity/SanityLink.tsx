@@ -1,6 +1,11 @@
 import Link from "next/link";
 
-const SanityLink = ({ value, children }) => {
+interface Props {
+	value: { href: string };
+	children: React.ReactNode;
+}
+
+const SanityLink = ({ value, children }: Props) => {
 	const href = value.href;
 	const isInternalLink = href && (href.startsWith("/") || href.startsWith("#"));
 

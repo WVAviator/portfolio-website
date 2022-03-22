@@ -1,17 +1,24 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import sanityClient from "../../lib/sanity";
 import { BlogPost } from "../../types";
-import BlogPost from "../../components/blog/BlogPost";
-
+import Prose from "../../components/blog/BlogPost";
 
 interface Props {
 	post: BlogPost;
 }
 
-const Post = ({ post }: Post) => {
+const Post = ({ post }: Props) => {
 	return (
 		<div className="page-container">
-			<div className="flex"><BlogPost post={post} /><section aria-label="sidebar" className="hidden md:flex flex-col items-center">Sidebar</section></div>
+			<div className="flex">
+				<Prose post={post} />
+				<section
+					aria-label="sidebar"
+					className="hidden md:flex flex-col items-center"
+				>
+					Sidebar
+				</section>
+			</div>
 		</div>
 	);
 };
@@ -31,14 +38,16 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 	}
 	`;
 
-	const post: BlogPost = await sanityClient.fetch(query, { slug: params.post });
-	
+	const post: BlogPost = await sanityClient.fetch(query, {
+		slug: params?.post,
+	});
+
 	return {
 		props: { post },
 	};
 };
 
-export const getStaticPaths: GetStaticPaths = () => {
+export const getStaticPaths: GetStaticPaths = async () => {
 	const query = `
 	*[_type == "post"] {
 		slug,

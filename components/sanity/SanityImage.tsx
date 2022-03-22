@@ -1,23 +1,26 @@
-import SanityImageAsset from "../../types";
 import sanityClient from "../../lib/sanity";
 import Image, { ImageProps } from "next/image";
 import { useNextSanityImage } from "next-sanity-image";
+import { SanityImageAsset } from "../../types";
 
-interface Props extends ImageProps {
+interface Props extends Omit<ImageProps, "src"> {
 	sanityImage: SanityImageAsset;
-	src?: string;
 	maxWidth?: string;
 }
 
-const SanityImage = ({ sanityImage, layout = "responsive", maxWidth = "800px", ...rest }: Props) => {
-	
+const SanityImage = ({
+	sanityImage,
+	layout = "responsive",
+	maxWidth = "800px",
+	...rest
+}: Props) => {
 	const imageProps = useNextSanityImage(sanityClient, sanityImage);
 
 	const commonProps = {
 		alt: sanityImage.alt ?? "",
 		layout,
-		...rest
-	}
+		...rest,
+	};
 
 	const imageOptions = {
 		fill: {
@@ -33,15 +36,10 @@ const SanityImage = ({ sanityImage, layout = "responsive", maxWidth = "800px", .
 		},
 		fixed: {
 			...imageProps,
-		}
-	}
+		},
+	};
 
-	return (
-		<Image
-			{...imageOptions[layout]}
-			{...commonProps}
-		/>
-	);
+	return <Image {...imageOptions[layout]} {...commonProps} />;
 };
 
 export default SanityImage;
