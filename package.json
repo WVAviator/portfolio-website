@@ -19,6 +19,7 @@
 		"dev": "concurrently \"next --port $PORT\" \"cd studio && sanity start\"",
 		"build": "echo 'Building Sanity to public/studio' && cd studio && sanity build ../public/studio -y && cd .. && next build",
 		"start": "vercel dev",
+		"install": "yarn && cd studio && yarn",
 		"postinstall": "lerna bootstrap"
 	},
 	"dependencies": {
