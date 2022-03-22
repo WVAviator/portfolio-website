@@ -1,7 +1,7 @@
 import { SanityPost } from "../../types";
-import { SanityImage } from "../sanity/SanityImage";
-import { SanityLink } from "../sanity/SanityLink";
-import { PostHeader } from "./PostHeader";
+import SanityImage from "../sanity/SanityImage";
+import SanityLink from "../sanity/SanityLink";
+import PostHeader from "./PostHeader";
 import { PortableText } from '@portabletext/react'
 
 interface Props {
