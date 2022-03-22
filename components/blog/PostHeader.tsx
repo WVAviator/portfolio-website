@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { PostMeta } from "../../lib/types/PostMeta";
-import MDXImage from "../mdx/MDXImage";
 
 interface Props {
 	postMeta: PostMeta;
@@ -18,12 +17,7 @@ const PostHeader = ({ postMeta }: Props) => {
 			</p>
 			<h1>{postMeta.title}</h1>
 
-			<div className="relative w-100 aspect-[2] rounded shadow-md overflow-hidden">
-				<MDXImage
-					src={postMeta.headerImageUrl}
-					alt={`${postMeta.title} header image`}
-				/>
-			</div>
+			<div className="relative w-100 aspect-[2] rounded shadow-md overflow-hidden"></div>
 		</div>
 	);
 };
