@@ -13,6 +13,10 @@ const DefaultHead = () => {
 				content="web design, web development, web application development"
 			/>
 			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+			{/* TODO: Remove this when site is ready to be searchable */}
+			<meta name="robots" content="noindex" />
+
 		</Head>
 	);
 };
