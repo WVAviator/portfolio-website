@@ -1,45 +1,31 @@
-import BlogHomeSection from "../../components/blog/BlogHomeSection";
-import { getPostMetas } from "../../lib/mdx";
-import { PostMeta } from "../../lib/types/PostMeta";
-import { getClient } from "../../lib/sanity";
+import sanityClient from "../../lib/sanity";
 
-interface Props {
-	// generalPosts: PostMeta[];
-	// projectsPosts: PostMeta[];
-	// toolsPosts: PostMeta[];
-}
+interface Props {}
 
-const BlogHomepage = ({ post, preview }: Props) => {
-	return (
-		<div className="page-container">
-			{/* <BlogHomeSection posts={projectsPosts} title="Projects" />
-			<BlogHomeSection posts={toolsPosts} title="Tools" />
-			<BlogHomeSection posts={generalPosts} title="General" /> */}
-		</div>
-	);
+const BlogHomepage = ({ posts }: Props) => {
+	return <div className="page-container"></div>;
 };
 
-
-
-export const getStaticProps = async ({ params, preview = false }) => {
-	
+export const getStaticProps = async () => {
 	const query = `
 	*[_type == "post"] | order(_createdAt desc) {
-	..., 
-	author->,
-	categories[]->
+		title,
+		slug,
+		subtitle,
+		mainImage,
 	}
 	`;
-	
-	const post = await getClient(preview).fetch(query);
+
+	const posts = await sanityClient.fetch(query);
+
+	console.log(posts);
 
 	return {
 		props: {
-			post,
-			preview,
+			posts,
 		},
 		revalidate: 10,
 	};
-}
+};
 
 export default BlogHomepage;
