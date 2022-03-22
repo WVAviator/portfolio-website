@@ -2,7 +2,7 @@ import sanityClient from "../../lib/sanity";
 
 interface Props {}
 
-const BlogHomepage = ({ posts }: Props) => {
+const BlogHomepage = () => {
 	return <div className="page-container"></div>;
 };
 
