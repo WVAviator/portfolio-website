@@ -5,7 +5,8 @@ import { useNextSanityImage } from "next-sanity-image";
 
 interface Props extends ImageProps {
 	sanityImage: SanityImageAsset;
-	maxWidth: string;
+	src?: string;
+	maxWidth?: string;
 }
 
 const SanityImage = ({ sanityImage, layout = "responsive", maxWidth = "800px", ...rest }: Props) => {
