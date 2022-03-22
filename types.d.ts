@@ -26,7 +26,7 @@ export interface SanityPost extends SanityItem {
 	title: string;
 	slug: {
 		current: string;
-	}
+	};
 	description: string;
 	header: SanityImageAsset;
 	body: any;
@@ -45,5 +45,5 @@ export interface Project extends SanityPost {
 export interface BlogPost extends SanityPost {
 	relatedTechnologies: Technology[];
 	relatedProjects: Project[];
+	mainImage: SanityImageAsset;
 }
-
