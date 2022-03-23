@@ -24,22 +24,23 @@
 		"build": "echo 'Building Sanity to public/studio' && cd studio && sanity build ../public/studio -y && cd .. && next build",
 		"start": "vercel dev",
 		"postinstall": "lerna bootstrap",
-		"lint": "eslint --ext .js,.ts,.tsx lib/ components/ pages/",
-		"prettier:fix": "prettier --write",
-		"prettier:check": "prettier --check ."
+		"lint-staged": "lint-staged"
 	},
 	"lint-staged": {
-		"lib/*{ts,tsx}": [
-			"yarn prettier:fix",
-			"yarn lint"
+		"lib/**/*.{ts,tsx}": [
+			"eslint --fix",
+			"prettier --write",
+			"tsc --noEmit --composite false"
 		],
-		"components/*{ts,tsx}": [
-			"yarn prettier:fix",
-			"yarn lint"
+		"components/**/*.{ts,tsx}": [
+			"eslint --fix",
+			"prettier --write",
+			"tsc --noEmit --composite false"
 		],
-		"pages/*{ts,tsx}": [
-			"yarn prettier:fix",
-			"yarn lint"
+		"pages/**/*.{ts,tsx}": [
+			"eslint --fix",
+			"prettier --write",
+			"tsc --noEmit --composite false"
 		]
 	},
 	"dependencies": {
