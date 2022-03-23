@@ -37,6 +37,8 @@ export default {
 		{
 			name: "desktopView",
 			title: "Desktop View",
+			description:
+				"What the project looks like on desktop. Should be 16/10 aspect ratio.",
 			type: "image",
 			fields: [
 				{

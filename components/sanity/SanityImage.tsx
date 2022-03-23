@@ -4,20 +4,20 @@ import { useNextSanityImage } from "next-sanity-image";
 import { SanityImageAsset } from "../../types";
 
 interface Props extends Omit<ImageProps, "src"> {
-	sanityImage: SanityImageAsset;
+	source: SanityImageAsset;
 	maxWidth?: string;
 }
 
 const SanityImage = ({
-	sanityImage,
+	source,
 	layout = "responsive",
 	maxWidth = "800px",
 	...rest
 }: Props) => {
-	const imageProps = useNextSanityImage(sanityClient, sanityImage);
+	const imageProps = useNextSanityImage(sanityClient, source);
 
 	const commonProps = {
-		alt: sanityImage.alt ?? "",
+		alt: source.alt ?? "",
 		layout,
 		...rest,
 	};
