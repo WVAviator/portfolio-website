@@ -18,7 +18,7 @@ const BlogHomeSection = ({ posts }: Props) => {
 								<h2 className="text-l font-semibold">{post.title}</h2>
 								<div className="relative w-36 h-36">
 									<SanityImage
-										sanityImage={post.mainImage}
+										source={post.mainImage}
 										layout="fill"
 										objectFit="contain"
 										objectPosition="center"
