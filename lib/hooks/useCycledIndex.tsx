@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 export default function useCycledIndex(
 	arrayLength: number,
@@ -6,21 +6,21 @@ export default function useCycledIndex(
 ): [number, () => void, () => void] {
 	const [currentIndex, setCurrentIndex] = useState(0);
 
-	const increment = () => {
+	const increment = useCallback(() => {
 		if (currentIndex === arrayLength - 1) {
 			setCurrentIndex(0);
 		} else {
 			setCurrentIndex(currentIndex + 1);
 		}
-	};
+	}, [currentIndex, arrayLength]);
 
-	const decrement = () => {
+	const decrement = useCallback(() => {
 		if (currentIndex === 0) {
 			setCurrentIndex(arrayLength - 1);
 		} else {
 			setCurrentIndex(currentIndex - 1);
 		}
-	};
+	}, [currentIndex, arrayLength]);
 
 	useEffect(() => {
 		if (!interval) return;
@@ -30,7 +30,7 @@ export default function useCycledIndex(
 		return () => {
 			clearTimeout(timeout);
 		};
-	}, [currentIndex]);
+	}, [currentIndex, increment, interval]);
 
 	return [currentIndex, increment, decrement];
 }

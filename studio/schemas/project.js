@@ -23,9 +23,30 @@ export default {
 			type: "text",
 		},
 		{
-			name: "smallStub",
-			title: "Small Stub Image",
+			name: "mobileView",
+			title: "Mobile View",
 			type: "image",
+			fields: [
+				{
+					name: "alt",
+					type: "string",
+					title: "Description",
+				},
+			],
+		},
+		{
+			name: "desktopView",
+			title: "Desktop View",
+			description:
+				"What the project looks like on desktop. Should be 16/10 aspect ratio.",
+			type: "image",
+			fields: [
+				{
+					name: "alt",
+					type: "string",
+					title: "Description",
+				},
+			],
 		},
 		{
 			name: "techStack",
@@ -40,6 +61,13 @@ export default {
 			options: {
 				hotspot: true,
 			},
+			fields: [
+				{
+					name: "alt",
+					type: "string",
+					title: "Description",
+				},
+			],
 		},
 		{
 			name: "body",

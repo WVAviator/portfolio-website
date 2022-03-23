@@ -1,12 +1,12 @@
 import Image from "next/image";
-import { PostMeta } from "../../lib/types/PostMeta";
 
 interface Props {
-	postMeta: PostMeta;
+	updated: string;
+	title: string;
 }
 
-const PostHeader = ({ postMeta }: Props) => {
-	const formattedDate = new Date(postMeta.dateUpdated).toLocaleDateString(
+const PostHeader = ({ updated, title }: Props) => {
+	const formattedDate = new Date(updated).toLocaleDateString(
 		"en-US"
 	);
 
@@ -15,7 +15,7 @@ const PostHeader = ({ postMeta }: Props) => {
 			<p>
 				Updated <time>{formattedDate}</time>
 			</p>
-			<h1>{postMeta.title}</h1>
+			<h1>{title}</h1>
 
 			<div className="relative w-100 aspect-[2] rounded shadow-md overflow-hidden"></div>
 		</div>

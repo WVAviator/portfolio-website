@@ -9,8 +9,8 @@ export default {
 			type: "string",
 		},
 		{
-			name: "subtitle",
-			title: "Subtitle",
+			name: "description",
+			title: "Description",
 			type: "string",
 		},
 		{
@@ -23,10 +23,31 @@ export default {
 			},
 		},
 		{
-			name: "techStack",
+			name: "relatedTechnologies",
 			title: "Related Technologies",
 			type: "array",
 			of: [{ type: "reference", to: { type: "technology" } }],
+		},
+		{
+			name: "relatedProjects",
+			title: "Related Projects",
+			type: "array",
+			of: [{ type: "reference", to: { type: "project" } }],
+		},
+		{
+			name: "header",
+			title: "Header Image",
+			type: "image",
+			options: {
+				hotspot: true,
+			},
+			fields: [
+				{
+					name: "alt",
+					type: "string",
+					title: "Description",
+				},
+			],
 		},
 		{
 			name: "mainImage",
@@ -35,11 +56,13 @@ export default {
 			options: {
 				hotspot: true,
 			},
-		},
-		{
-			name: "publishedAt",
-			title: "Published at",
-			type: "datetime",
+			fields: [
+				{
+					name: "alt",
+					type: "string",
+					title: "Description",
+				},
+			],
 		},
 		{
 			name: "body",

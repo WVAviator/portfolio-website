@@ -26,6 +26,13 @@ export default {
 			name: "logo",
 			title: "Logo",
 			type: "image",
+			fields: [
+				{
+					name: "alt",
+					type: "string",
+					title: "Description",
+				},
+			],
 		},
 		{
 			name: "header",
@@ -34,6 +41,13 @@ export default {
 			options: {
 				hotspot: true,
 			},
+			fields: [
+				{
+					name: "alt",
+					type: "string",
+					title: "Description",
+				},
+			],
 		},
 		{
 			name: "body",
