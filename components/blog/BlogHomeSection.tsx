@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { BlogPost } from "../../types";
 import SanityImage from "../sanity/SanityImage";
@@ -15,7 +14,9 @@ const BlogHomeSection = ({ posts }: Props) => {
 					<li key={post.slug.current}>
 						<Link href={`/blog/${post.slug.current}`}>
 							<a>
-								<h2 className="text-l font-semibold">{post.title}</h2>
+								<h2 className="text-l font-semibold">
+									{post.title}
+								</h2>
 								<div className="relative w-36 h-36">
 									<SanityImage
 										source={post.mainImage}
