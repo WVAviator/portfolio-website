@@ -10,11 +10,13 @@ interface Props {
 
 const components: Partial<PortableTextReactComponents> = {
 	types: {
-		image: ({ value }) => <SanityImage source={value as SanityImageAsset} />,
+		image: ({ value }) => (
+			<SanityImage source={value as SanityImageAsset} />
+		),
 	},
 	marks: {
 		link: ({ children, value }) => (
-			<SanityLink value={value} children={children} />
+			<SanityLink value={value}>{children}</SanityLink>
 		),
 	},
 };

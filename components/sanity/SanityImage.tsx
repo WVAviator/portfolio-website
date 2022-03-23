@@ -16,12 +16,6 @@ const SanityImage = ({
 }: Props) => {
 	const imageProps = useNextSanityImage(sanityClient, source);
 
-	const commonProps = {
-		alt: source.alt ?? "",
-		layout,
-		...rest,
-	};
-
 	const imageOptions = {
 		fill: {
 			src: imageProps.src,
@@ -39,7 +33,14 @@ const SanityImage = ({
 		},
 	};
 
-	return <Image {...imageOptions[layout]} {...commonProps} />;
+	return (
+		<Image
+			{...imageOptions[layout]}
+			alt={source.alt ?? ""}
+			layout={layout}
+			{...rest}
+		/>
+	);
 };
 
 export default SanityImage;
