@@ -1,15 +1,9 @@
 import React from "react";
 import Smartphone from "../../display/Smartphone";
-import HeroHeading from "./HeroHeading";
 import Laptop from "../../display/Laptop";
 import Button from "../../ui/Button";
 import ArrowSmRightIcon from "@heroicons/react/solid/ArrowSmRightIcon";
 import ContainedSlideshow from "../../ui/ContainedSlideshow";
-
-import portfolioSiteImage from "/public/images/portfolio/portfolio-site-desktop.png";
-import palsOfPawsImage from "/public/images/portfolio/pals-of-paws-desktop.png";
-import atomicRunningImage from "/public/images/portfolio/atomic-running-sports-desktop.png";
-import Image from "next/image";
 import SanityImage from "../../sanity/SanityImage";
 import { SanityImageAsset } from "../../../types";
 
