@@ -30,7 +30,7 @@ export default {
 				{
 					name: "alt",
 					type: "string",
-					title: "Description",
+					title: "Alternate Text",
 				},
 			],
 		},
@@ -45,7 +45,7 @@ export default {
 				{
 					name: "alt",
 					type: "string",
-					title: "Description",
+					title: "Alternate Text",
 				},
 			],
 		},

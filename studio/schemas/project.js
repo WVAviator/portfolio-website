@@ -26,11 +26,12 @@ export default {
 			name: "mobileView",
 			title: "Mobile View",
 			type: "image",
+			description: "What the project looks like on mobile. Should be 3/5 aspect ratio.",
 			fields: [
 				{
 					name: "alt",
 					type: "string",
-					title: "Description",
+					title: "Alternate Text",
 				},
 			],
 		},
@@ -44,7 +45,7 @@ export default {
 				{
 					name: "alt",
 					type: "string",
-					title: "Description",
+					title: "Alternate Text",
 				},
 			],
 		},
@@ -65,7 +66,7 @@ export default {
 				{
 					name: "alt",
 					type: "string",
-					title: "Description",
+					title: "Alternate Text",
 				},
 			],
 		},
