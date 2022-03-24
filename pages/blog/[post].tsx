@@ -14,7 +14,7 @@ const Post = ({ post }: Props) => {
 				<Prose post={post} />
 				<section
 					aria-label="sidebar"
-					className="hidden md:flex flex-col items-center"
+					className="hidden lg:flex flex-col items-center"
 				>
 					Sidebar
 				</section>
@@ -33,8 +33,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 		relatedProjects,
 		header,
 		mainImage,
-		publishedAt,
-		body
+		body,
+		_updatedAt
 	}
 	`;
 

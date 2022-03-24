@@ -11,7 +11,9 @@ interface Props {
 const components: Partial<PortableTextReactComponents> = {
 	types: {
 		image: ({ value }) => (
-			<SanityImage source={value as SanityImageAsset} />
+			<div className="shadow-md rounded overflow-hidden">
+				<SanityImage source={value as SanityImageAsset} />
+			</div>
 		),
 	},
 	marks: {
@@ -23,7 +25,7 @@ const components: Partial<PortableTextReactComponents> = {
 
 const Prose = ({ post }: Props) => {
 	return (
-		<article className="prose md:prose-lg lg:prose-xl prose-slate">
+		<article className="prose md:prose-lg lg:prose-xl prose-slate prose-a:cursor-pointer hover:prose-a:text-primary-400 prose-a:transition-colors prose-a:duration-200">
 			<PostHeader updated={post._updatedAt} title={post.title} />
 
 			<PortableText value={post.body} components={components} />

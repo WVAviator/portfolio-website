@@ -6,9 +6,7 @@ interface Props {
 }
 
 const PostHeader = ({ updated, title }: Props) => {
-	const formattedDate = new Date(updated).toLocaleDateString(
-		"en-US"
-	);
+	const formattedDate = new Date(updated).toLocaleDateString();
 
 	return (
 		<div className="prose md:prose-lg lg:prose-xl prose-slate mb-10">

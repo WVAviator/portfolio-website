@@ -21,6 +21,7 @@ export const getStaticProps = async () => {
 		slug,
 		description,
 		mainImage,
+		_updatedAt
 	}
 	`;
 

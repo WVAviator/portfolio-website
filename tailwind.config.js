@@ -7,20 +7,15 @@ module.exports = {
 		"./components/**/*.{js,ts,jsx,tsx}",
 	],
 	theme: {
-		colors: {
-			transparent: "transparent",
-			current: "currentColor",
-			primary: colors.cyan,
-			black: "#000",
-			white: "#FFF",
-			slate: colors.slate,
-		},
 		extend: {
 			fontFamily: {
 				sans: ["Lato", ...defaultTheme.fontFamily.sans],
 			},
 			screens: {
 				xsm: "480px",
+			},
+			colors: {
+				primary: colors.cyan,
 			},
 		},
 	},
