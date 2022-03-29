@@ -1,7 +1,9 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import sanityClient from "../../lib/sanity";
 import { BlogPost } from "../../types";
-import Prose from "../../components/blog/BlogPost";
+import Prose from "../../components/blog/Prose";
+import Sidebar from "../../components/blog/Sidebar";
+import TechStack from "../../components/display/TechStack";
 
 interface Props {
 	post: BlogPost;
@@ -12,12 +14,9 @@ const Post = ({ post }: Props) => {
 		<div className="page-container">
 			<div className="flex">
 				<Prose post={post} />
-				<section
-					aria-label="sidebar"
-					className="hidden lg:flex flex-col items-center"
-				>
-					Sidebar
-				</section>
+				<Sidebar>
+					<TechStack techStack={post.relatedTechnologies} />
+				</Sidebar>
 			</div>
 		</div>
 	);
@@ -29,7 +28,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 		title,
 		description,
 		slug,
-		relatedTechnologies,
+		relatedTechnologies[]->{
+			logo,
+			slug
+		},
 		relatedProjects,
 		header,
 		mainImage,
