@@ -36,6 +36,9 @@ export default {
         decorators: [
           {title: 'Strong', value: 'strong'},
           {title: 'Emphasis', value: 'em'},
+          {title: "Code", value: "code" },
+          {title: "Underline", value: "underline" },
+          {title: "Strike", value: "strike-through" }
         ],
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
@@ -68,6 +71,23 @@ export default {
 				},
 			],
     },
-    
+    {
+      title: 'Code',
+      type: 'code',
+      options: {
+        theme: 'solarized_dark',
+        languageAlternatives: [
+          {title: 'JavaScript', value: 'javascript'},
+          {title: 'CSS', value: 'css'},
+          {title: 'HTML', value: 'xml'},
+          {title: 'Sass', value: 'scss'},
+          {title: 'TypeScript', value: 'typescript'},
+          {title: 'Java', value: 'java'},
+          {title: 'Python', value: 'python'},
+          {title: 'C#', value: 'csharp'},
+        ],
+
+      },
+    },
   ],
 }
