@@ -9,16 +9,18 @@ import { SanityImageAsset } from "../../../types";
 
 interface Props {
 	desktopImages: SanityImageAsset[];
+	mobileImages: SanityImageAsset[];
 }
 
-const Hero = ({ desktopImages }: Props) => {
+const Hero = ({ desktopImages, mobileImages }: Props) => {
 	return (
 		<section className="page-container">
 			<div className="grid grid-cols-1 py-8 lg:grid-cols-2 lg:py-16 gap-y-6">
 				<div className="p-2 lg:p-6">
 					<div className=" flex flex-col items-center justify-center gap-8 min-w-[50%] lg:items-start ">
 						<div className="text-4xl sm:text-5xl md:text-6xl  text-center lg:text-left">
-							Professional web design and development for your business
+							Professional web design and development for your
+							business
 						</div>
 						<Button href="/" endIcon={<ArrowSmRightIcon />}>
 							View Portfolio
@@ -39,7 +41,7 @@ const Hero = ({ desktopImages }: Props) => {
 					</Laptop>
 					<Smartphone className="max-w-[20%] -translate-y-[110%] -translate-x-[180%]">
 						<ContainedSlideshow>
-							{desktopImages.map((image) => (
+							{mobileImages.map((image) => (
 								<SanityImage
 									source={image}
 									key={image.asset._ref}
