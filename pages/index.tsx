@@ -25,11 +25,18 @@ const Home = ({ technologies, projects }: Props) => {
 					.map((project) => project.mobileView)}
 			/>
 			<section>
-				<Banner className="min-h-36">
+				<div className="w-full flex items-center justify-center text-center">
+					<h1 className="text-2xl sm:text-3xl md:text-4xl max-w-[40rem] mb-12">
+						Leveraging cutting-edge technologies to deliver
+						high-performance websites and applications
+					</h1>
+				</div>
+				<Banner className="h-20 md:h-28 lg:h-36">
 					{technologies.map((technology) => (
 						<TechLogo
 							key={technology.slug.current}
 							technology={technology}
+							className="h-20 w-20 md:w-28 md:h-28 lg:w-36 lg:h-36"
 						/>
 					))}
 				</Banner>
