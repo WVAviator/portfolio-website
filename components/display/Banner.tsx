@@ -12,7 +12,7 @@ const Banner = ({ children, className, duration = 3 }: Props) => {
 
 	return (
 		<div
-			className={`flex items-center w-screen overflow-x-hidden ${className}`}
+			className={`relative max-w-full flex items-center w-screen overflow-x-hidden ${className}`}
 		>
 			<motion.ul
 				className="absolute flex items-center min-w-full"

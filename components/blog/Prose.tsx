@@ -31,7 +31,7 @@ const components: Partial<PortableTextReactComponents> = {
 
 const Prose = ({ post }: Props) => {
 	return (
-		<article className="prose md:prose-lg lg:prose-xl prose-slate prose-a:cursor-pointer hover:prose-a:text-primary-400 prose-a:transition-colors prose-a:duration-200 prose-code:before:content-[''] prose-code:after:content-[''] max-w-[90vw] sm:max-w-[65ch]">
+		<article className="prose md:prose-lg lg:prose-xl prose-slate prose-a:cursor-pointer hover:prose-a:text-primary-400 prose-a:transition-colors prose-a:duration-200 prose-code:before:content-[''] prose-code:after:content-[''] max-w-full md:max-w-[65ch]">
 			<PostHeader
 				updated={post._updatedAt}
 				title={post.title}
