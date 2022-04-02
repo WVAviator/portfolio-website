@@ -11,6 +11,10 @@ const Code = ({ language, children }: Props) => {
 
 	return (
 		<SyntaxHighlighter
+			customStyle={{
+				width: "min(85vw, 100%)",
+				margin: "0",
+			}}
 			language={language || "javascript"}
 			style={tomorrowNight}
 		>
