@@ -23,6 +23,16 @@ export default {
 			type: "text",
 		},
 		{
+			name: "projectUrl",
+			title: "Project URL",
+			type: "string",
+		},
+		{
+			name: "githubUrl",
+			title: "Github URL",
+			type: "string",
+		},
+		{
 			name: "mobileView",
 			title: "Mobile View",
 			type: "image",

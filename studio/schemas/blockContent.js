@@ -89,5 +89,8 @@ export default {
 
       },
     },
+    {
+      type: 'iframe'
+    }
   ],
 }

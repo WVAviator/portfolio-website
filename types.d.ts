@@ -40,6 +40,8 @@ export interface Project extends SanityPost {
 	mobileView: SanityImageAsset;
 	desktopView: SanityImageAsset;
 	techStack: Technology[];
+	projectUrl: string;
+	githubUrl: string;
 }
 
 export interface BlogPost extends SanityPost {
