@@ -1,4 +1,5 @@
 import sanityClient from "../../lib/sanity";
+import ProjectPreview from "../../components/layout/ProjectPreview";
 import { Project } from "../../types";
 
 interface Props {
@@ -6,7 +7,16 @@ interface Props {
 }
 
 const ProjectHomepage = ({ projects }: Props) => {
-	return <div className="page-container"></div>;
+	return (
+		<div className="page-container">
+			<h1 className="text-2xl my-8">Projects</h1>
+			<div className="flex flex-col gap-8">
+				{projects.map((project) => (
+					<ProjectPreview project={project} key={project._id} />
+				))}
+			</div>
+		</div>
+	);
 };
 
 export const getStaticProps = async () => {

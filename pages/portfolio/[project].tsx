@@ -19,24 +19,33 @@ const Project = ({ project }: Props) => {
 			<div className="flex">
 				<Prose post={project} />
 				<Sidebar>
-					{project.desktopView && (
-						<Link href={project.projectUrl ?? "#"}>
-							<a>
-								<Laptop>
-									<SanityImage source={project.desktopView} />
+					<a
+						className="group transition-transform hover:scale-105 duration-200"
+						href={project.projectUrl}
+					>
+						<div className="p-6 lg:p-6 flex flex-col items-center w-[24rem] cursor-pointer  max-h-[16rem] ">
+							{project.desktopView && (
+								<Laptop className="max-w-[100%]">
+									<SanityImage
+										source={project.desktopView}
+										alt={project.title}
+									/>
 								</Laptop>
-							</a>
-						</Link>
-					)}
-					{project.mobileView && (
-						<Link href={project.projectUrl ?? "#"}>
-							<a>
-								<Smartphone>
-									<SanityImage source={project.mobileView} />
+							)}
+							{project.mobileView && (
+								<Smartphone className="max-w-[20%] -translate-y-[110%] -translate-x-[180%]">
+									<SanityImage
+										source={project.mobileView}
+										alt={project.title}
+									/>
 								</Smartphone>
-							</a>
-						</Link>
-					)}
+							)}
+						</div>
+						<p className="text-center mt-2 group-hover:text-cyan-400">
+							View Project
+						</p>
+					</a>
+					<div className="h-[1px] bg-slate-200 w-[90%] my-10"></div>
 					<TechStack
 						techStack={project.techStack}
 						headerText="Tech Stack"

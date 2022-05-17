@@ -19,7 +19,7 @@ const PostHeader = ({ updated, title, headerImage }: Props) => {
 			<h1>{title}</h1>
 
 			<div className="relative w-100 aspect-[2] rounded shadow-md overflow-hidden">
-				<SanityImage source={headerImage} />
+				{headerImage && <SanityImage source={headerImage} />}
 			</div>
 		</div>
 	);

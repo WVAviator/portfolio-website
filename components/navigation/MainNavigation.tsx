@@ -17,7 +17,7 @@ const mainLinks: NavLink[] = [
 		label: "Home",
 	},
 	{
-		href: "/",
+		href: "/portfolio",
 		label: "Portfolio",
 	},
 	{
@@ -25,7 +25,7 @@ const mainLinks: NavLink[] = [
 		label: "Blog",
 	},
 	{
-		href: "/",
+		href: "/services",
 		label: "Services",
 	},
 ];
@@ -52,7 +52,9 @@ const MainNavigation = ({ open, setOpen }: Props) => {
 						}}
 						key={index}
 						className={`relative w-[110%] flex group cursor-pointer justify-end items-center py-3 pl-10 pr-16 bg-black hover:text-primary-400 active:text-primary-600 transition-colors duration-200 ${
-							index === mainLinks.length - 1 ? "rounded-bl-md" : ""
+							index === mainLinks.length - 1
+								? "rounded-bl-md"
+								: ""
 						}`}
 					>
 						<Link href={link.href}>
