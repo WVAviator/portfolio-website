@@ -1,7 +1,7 @@
-import { useState } from "react";
-import Button from "../ui/Button";
-import MainNavigation from "./MainNavigation";
-import MenuIcon from "../ui/MenuIcon";
+import { useState } from 'react';
+import Button from '../ui/Button';
+import MainNavigation from './MainNavigation';
+import MenuIcon from '../ui/MenuIcon';
 
 const HeaderNavigation = () => {
 	const [open, setOpen] = useState(false);

@@ -1,4 +1,4 @@
-import Head from "next/head";
+import Head from 'next/head';
 
 const DefaultHead = () => {
 	return (
@@ -16,7 +16,6 @@ const DefaultHead = () => {
 
 			{/* TODO: Remove this when site is ready to be searchable */}
 			<meta name="robots" content="noindex" />
-
 		</Head>
 	);
 };

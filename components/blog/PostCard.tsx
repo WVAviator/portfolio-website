@@ -1,6 +1,6 @@
-import Link from "next/link";
-import { BlogPost } from "../../types";
-import SanityImage from "../sanity/SanityImage";
+import Link from 'next/link';
+import { BlogPost } from '../../types';
+import SanityImage from '../sanity/SanityImage';
 
 interface Props {
 	post: BlogPost;

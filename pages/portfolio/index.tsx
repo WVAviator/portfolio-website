@@ -1,6 +1,6 @@
-import sanityClient from "../../lib/sanity";
-import ProjectPreview from "../../components/layout/ProjectPreview";
-import { Project } from "../../types";
+import sanityClient from '../../lib/sanity';
+import ProjectPreview from '../../components/layout/ProjectPreview';
+import { Project } from '../../types';
 
 interface Props {
 	projects: Project[];

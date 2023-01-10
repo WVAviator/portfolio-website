@@ -1,7 +1,7 @@
-import { ImageProps } from "next/image";
-import React from "react";
-import { useRef } from "react";
-import useCycledIndex from "../../lib/hooks/useCycledIndex";
+import { ImageProps } from 'next/image';
+import React from 'react';
+import { useRef } from 'react';
+import useCycledIndex from '../../lib/hooks/useCycledIndex';
 
 interface Props {
 	children: React.ReactElement<ImageProps> | React.ReactElement<ImageProps>[];

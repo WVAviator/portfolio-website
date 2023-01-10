@@ -1,12 +1,12 @@
-import Image from "next/image";
-import smartphone from "/public/images/smartphone.png";
+import Image from 'next/image';
+import smartphone from '/public/images/smartphone.png';
 
 interface Props {
 	children?: React.ReactNode;
 	className?: string;
 }
 
-const Smartphone = ({ children, className = "" }: Props) => {
+const Smartphone = ({ children, className = '' }: Props) => {
 	return (
 		<div className={`relative ${className}`}>
 			<Image src={smartphone} alt="A smart phone" />

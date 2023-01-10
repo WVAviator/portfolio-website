@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 interface Props {
 	value: { href: string };
@@ -6,10 +6,9 @@ interface Props {
 	className?: string;
 }
 
-const SanityLink = ({ value, children, className = "" }: Props) => {
+const SanityLink = ({ value, children, className = '' }: Props) => {
 	const href = value.href;
-	const isInternalLink =
-		href && (href.startsWith("/") || href.startsWith("#"));
+	const isInternalLink = href && (href.startsWith('/') || href.startsWith('#'));
 
 	if (isInternalLink) {
 		return (

@@ -1,8 +1,8 @@
-import Link from "next/link";
-import { CSSProperties, DetailedHTMLProps, IframeHTMLAttributes } from "react";
-import { SanityImageAsset } from "../../types";
-import Laptop from "../display/Laptop";
-import SanityImage from "../sanity/SanityImage";
+import Link from 'next/link';
+import { CSSProperties, DetailedHTMLProps, IframeHTMLAttributes } from 'react';
+import { SanityImageAsset } from '../../types';
+import Laptop from '../display/Laptop';
+import SanityImage from '../sanity/SanityImage';
 
 interface Props
 	extends DetailedHTMLProps<
@@ -18,7 +18,7 @@ const IFrame = ({ altImage, ...rest }: Props) => {
 			<div className="hidden sm:block shadow-md rounded overflow-hidden w-full aspect-[1.61]">
 				<iframe className="w-full h-full" {...rest} />
 			</div>
-			<Link href={rest.src ?? "#"}>
+			<Link href={rest.src ?? '#'}>
 				<a>
 					<Laptop className="sm:hidden">
 						<SanityImage source={altImage} />

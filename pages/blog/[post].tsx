@@ -1,9 +1,9 @@
-import { GetStaticPaths, GetStaticProps } from "next";
-import sanityClient from "../../lib/sanity";
-import { BlogPost } from "../../types";
-import Prose from "../../components/blog/Prose";
-import Sidebar from "../../components/blog/Sidebar";
-import TechStack from "../../components/display/TechStack";
+import { GetStaticPaths, GetStaticProps } from 'next';
+import sanityClient from '../../lib/sanity';
+import { BlogPost } from '../../types';
+import Prose from '../../components/blog/Prose';
+import Sidebar from '../../components/blog/Sidebar';
+import TechStack from '../../components/display/TechStack';
 
 interface Props {
 	post: BlogPost;

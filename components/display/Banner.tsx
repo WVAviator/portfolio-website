@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
-import React, { useRef } from "react";
+import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
 
 interface Props {
 	children: React.ReactNode;
@@ -16,12 +16,12 @@ const Banner = ({ children, className, duration = 3 }: Props) => {
 		>
 			<motion.ul
 				className="absolute flex items-center min-w-full"
-				animate={{ x: ["0%", "-100%", "100%", "0%"] }}
+				animate={{ x: ['0%', '-100%', '100%', '0%'] }}
 				transition={{
 					duration: childCount * duration,
 					times: [0, 1, 1, 2],
 					repeat: Infinity,
-					ease: "linear",
+					ease: 'linear',
 				}}
 			>
 				{React.Children.map(children, (child, index) => {
@@ -30,12 +30,12 @@ const Banner = ({ children, className, duration = 3 }: Props) => {
 			</motion.ul>
 			<motion.ul
 				className="absolute flex items-center min-w-full"
-				animate={{ x: ["100%", "0%", "-100%", "100%"] }}
+				animate={{ x: ['100%', '0%', '-100%', '100%'] }}
 				transition={{
 					duration: childCount * duration,
 					times: [0, 1, 2, 2],
 					repeat: Infinity,
-					ease: "linear",
+					ease: 'linear',
 				}}
 			>
 				{React.Children.map(children, (child, index) => {

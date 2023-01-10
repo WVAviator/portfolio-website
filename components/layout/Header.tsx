@@ -1,5 +1,5 @@
-import Logo from "../brand/Logo";
-import HeaderNavigation from "../navigation/HeaderNavigation";
+import Logo from '../brand/Logo';
+import HeaderNavigation from '../navigation/HeaderNavigation';
 
 const Header = () => {
 	return (

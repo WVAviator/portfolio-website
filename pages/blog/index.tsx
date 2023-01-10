@@ -1,6 +1,6 @@
-import BlogHomeSection from "../../components/blog/BlogHomeSection";
-import sanityClient from "../../lib/sanity";
-import { BlogPost } from "../../types";
+import BlogHomeSection from '../../components/blog/BlogHomeSection';
+import sanityClient from '../../lib/sanity';
+import { BlogPost } from '../../types';
 
 interface Props {
 	posts: BlogPost[];

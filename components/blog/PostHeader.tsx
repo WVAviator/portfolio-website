@@ -1,6 +1,6 @@
-import Image from "next/image";
-import { SanityImageAsset } from "../../types";
-import SanityImage from "../sanity/SanityImage";
+import Image from 'next/image';
+import { SanityImageAsset } from '../../types';
+import SanityImage from '../sanity/SanityImage';
 
 interface Props {
 	updated: string;

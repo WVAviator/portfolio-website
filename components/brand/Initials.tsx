@@ -7,11 +7,11 @@ interface Props {
 }
 
 const Initials = ({
-	strokeWidth = "2.5",
+	strokeWidth = '2.5',
 	size = 57,
-	fill = "none",
-	svgClasses = "stroke-primary-400",
-	className = "",
+	fill = 'none',
+	svgClasses = 'stroke-primary-400',
+	className = '',
 }: Props) => {
 	const ASPECT_RATIO = 51 / 57;
 	const width = size.toString();

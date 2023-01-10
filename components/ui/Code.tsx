@@ -1,5 +1,5 @@
-import SyntaxHighlighter from "react-syntax-highlighter";
-import { tomorrowNight } from "react-syntax-highlighter/dist/cjs/styles/hljs";
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { tomorrowNight } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 
 interface Props {
 	language: string;
@@ -13,7 +13,7 @@ const Code = ({ language, children }: Props) => {
 			// 	width: "min(85vw, 100%)",
 			// 	margin: "0",
 			// }}
-			language={language || "javascript"}
+			language={language || 'javascript'}
 			style={tomorrowNight}
 		>
 			{children}

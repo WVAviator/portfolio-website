@@ -1,10 +1,10 @@
-import { SanityImageAsset, SanityPost } from "../../types";
-import SanityImage from "../sanity/SanityImage";
-import SanityLink from "../sanity/SanityLink";
-import PostHeader from "./PostHeader";
-import { PortableText, PortableTextReactComponents } from "@portabletext/react";
-import Code from "../ui/Code";
-import IFrame from "../ui/IFrame";
+import { SanityImageAsset, SanityPost } from '../../types';
+import SanityImage from '../sanity/SanityImage';
+import SanityLink from '../sanity/SanityLink';
+import PostHeader from './PostHeader';
+import { PortableText, PortableTextReactComponents } from '@portabletext/react';
+import Code from '../ui/Code';
+import IFrame from '../ui/IFrame';
 
 interface Props {
 	post: SanityPost;
@@ -17,9 +17,7 @@ const components: Partial<PortableTextReactComponents> = {
 				<SanityImage source={value as SanityImageAsset} />
 			</div>
 		),
-		code: ({ value }) => (
-			<Code language={value.language}>{value.code}</Code>
-		),
+		code: ({ value }) => <Code language={value.language}>{value.code}</Code>,
 		iframe: ({ value }) => <IFrame {...value} />,
 	},
 	marks: {

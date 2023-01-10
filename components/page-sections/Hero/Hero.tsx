@@ -1,12 +1,12 @@
-import React from "react";
-import Smartphone from "../../display/Smartphone";
-import Laptop from "../../display/Laptop";
-import Button from "../../ui/Button";
-import ArrowSmRightIcon from "@heroicons/react/solid/ArrowSmRightIcon";
-import ContainedSlideshow from "../../ui/ContainedSlideshow";
-import SanityImage from "../../sanity/SanityImage";
-import { SanityImageAsset } from "../../../types";
-import Link from "next/link";
+import React from 'react';
+import Smartphone from '../../display/Smartphone';
+import Laptop from '../../display/Laptop';
+import Button from '../../ui/Button';
+import ArrowSmRightIcon from '@heroicons/react/solid/ArrowSmRightIcon';
+import ContainedSlideshow from '../../ui/ContainedSlideshow';
+import SanityImage from '../../sanity/SanityImage';
+import { SanityImageAsset } from '../../../types';
+import Link from 'next/link';
 
 interface Props {
 	desktopImages: SanityImageAsset[];
@@ -20,8 +20,7 @@ const Hero = ({ desktopImages, mobileImages }: Props) => {
 				<div className="p-2 lg:p-6">
 					<div className=" flex flex-col items-center justify-center gap-9 sm:gap-12 md:gap-14 min-w-[50%] lg:items-start ">
 						<h1 className="text-4xl sm:text-5xl md:text-6xl text-center lg:text-left">
-							Professional web design and development for your
-							business
+							Professional web design and development for your business
 						</h1>
 						<Button href="/" endIcon={<ArrowSmRightIcon />}>
 							View Portfolio

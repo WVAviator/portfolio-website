@@ -1,5 +1,5 @@
-import Link from "next/link";
-import { motion } from "framer-motion";
+import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 interface Props {
 	open: boolean;
@@ -13,20 +13,20 @@ interface NavLink {
 
 const mainLinks: NavLink[] = [
 	{
-		href: "/",
-		label: "Home",
+		href: '/',
+		label: 'Home',
 	},
 	{
-		href: "/portfolio",
-		label: "Portfolio",
+		href: '/portfolio',
+		label: 'Portfolio',
 	},
 	{
-		href: "/blog",
-		label: "Blog",
+		href: '/blog',
+		label: 'Blog',
 	},
 	{
-		href: "/services",
-		label: "Services",
+		href: '/services',
+		label: 'Services',
 	},
 ];
 
@@ -42,19 +42,17 @@ const MainNavigation = ({ open, setOpen }: Props) => {
 				{mainLinks.map((link, index) => (
 					<motion.li
 						role="none"
-						animate={{ x: open ? 0 : "100%" }}
+						animate={{ x: open ? 0 : '100%' }}
 						transition={{
 							delay: open
 								? index * 0.05
 								: (mainLinks.length - 1 - index) * 0.05,
 							ease: [0.29, 0.98, 0.87, 1.09],
-							type: "tween",
+							type: 'tween',
 						}}
 						key={index}
 						className={`relative w-[110%] flex group cursor-pointer justify-end items-center py-3 pl-10 pr-16 bg-black hover:text-primary-400 active:text-primary-600 transition-colors duration-200 ${
-							index === mainLinks.length - 1
-								? "rounded-bl-md"
-								: ""
+							index === mainLinks.length - 1 ? 'rounded-bl-md' : ''
 						}`}
 					>
 						<Link href={link.href}>

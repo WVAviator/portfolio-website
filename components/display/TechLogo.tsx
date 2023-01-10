@@ -1,13 +1,13 @@
-import Link from "next/link";
-import { Technology } from "../../types";
-import SanityImage from "../sanity/SanityImage";
+import Link from 'next/link';
+import { Technology } from '../../types';
+import SanityImage from '../sanity/SanityImage';
 
 interface Props {
 	technology: Technology;
 	className?: string;
 }
 
-const TechLogo = ({ technology, className = "w-36 h-36" }: Props) => {
+const TechLogo = ({ technology, className = 'w-36 h-36' }: Props) => {
 	return (
 		<Link href={`/technology/${technology.slug.current}`}>
 			<a>

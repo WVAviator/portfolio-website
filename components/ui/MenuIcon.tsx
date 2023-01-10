@@ -4,7 +4,7 @@ interface Props {
 }
 
 const MenuIcon = ({ open, setOpen }: Props) => {
-	const commonClasses = "w-6 h-1 bg-primary-50 rounded-sm";
+	const commonClasses = 'w-6 h-1 bg-primary-50 rounded-sm';
 
 	return (
 		<button
@@ -21,20 +21,20 @@ const MenuIcon = ({ open, setOpen }: Props) => {
 				<div
 					className={`${commonClasses} absolute ${
 						open
-							? "top-0 rotate-45 transition-top-then-rotate"
-							: "top-2 rotate-0 transition-rotate-then-top"
+							? 'top-0 rotate-45 transition-top-then-rotate'
+							: 'top-2 rotate-0 transition-rotate-then-top'
 					}`}
 				></div>
 				<div
 					className={`${commonClasses} transition-opacity duration-0 delay-150 ${
-						open ? "opacity-0" : "opacity-100"
+						open ? 'opacity-0' : 'opacity-100'
 					}`}
 				></div>
 				<div
 					className={`${commonClasses} absolute ${
 						open
-							? "top-0 -rotate-45 transition-top-then-rotate"
-							: "-top-2 rotate-0 transition-rotate-then-top"
+							? 'top-0 -rotate-45 transition-top-then-rotate'
+							: '-top-2 rotate-0 transition-rotate-then-top'
 					}`}
 				></div>
 			</div>

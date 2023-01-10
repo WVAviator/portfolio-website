@@ -3,7 +3,7 @@ interface Props {
 	className?: string;
 }
 
-const Sidebar = ({ children, className = "" }: Props) => {
+const Sidebar = ({ children, className = '' }: Props) => {
 	return (
 		<section
 			aria-label="sidebar"

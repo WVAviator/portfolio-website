@@ -1,13 +1,13 @@
-import { GetStaticPaths, GetStaticProps } from "next";
-import sanityClient from "../../lib/sanity";
-import { Project } from "../../types";
-import Prose from "../../components/blog/Prose";
-import Sidebar from "../../components/blog/Sidebar";
-import TechStack from "../../components/display/TechStack";
-import Laptop from "../../components/display/Laptop";
-import SanityImage from "../../components/sanity/SanityImage";
-import Link from "next/link";
-import Smartphone from "../../components/display/Smartphone";
+import { GetStaticPaths, GetStaticProps } from 'next';
+import sanityClient from '../../lib/sanity';
+import { Project } from '../../types';
+import Prose from '../../components/blog/Prose';
+import Sidebar from '../../components/blog/Sidebar';
+import TechStack from '../../components/display/TechStack';
+import Laptop from '../../components/display/Laptop';
+import SanityImage from '../../components/sanity/SanityImage';
+import Link from 'next/link';
+import Smartphone from '../../components/display/Smartphone';
 
 interface Props {
 	project: Project;
@@ -46,10 +46,7 @@ const Project = ({ project }: Props) => {
 						</p>
 					</a>
 					<div className="h-[1px] bg-slate-200 w-[90%] my-10"></div>
-					<TechStack
-						techStack={project.techStack}
-						headerText="Tech Stack"
-					/>
+					<TechStack techStack={project.techStack} headerText="Tech Stack" />
 				</Sidebar>
 			</div>
 		</div>

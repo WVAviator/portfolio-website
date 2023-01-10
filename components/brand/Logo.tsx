@@ -1,5 +1,5 @@
-import Link from "next/link";
-import Initials from "./Initials";
+import Link from 'next/link';
+import Initials from './Initials';
 
 const Logo = () => {
 	return (

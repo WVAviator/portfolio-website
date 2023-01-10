@@ -1,13 +1,13 @@
-import Image from "next/image";
-import React from "react";
-import laptop from "/public/images/laptop.png";
+import Image from 'next/image';
+import React from 'react';
+import laptop from '/public/images/laptop.png';
 
 interface Props {
 	children?: React.ReactNode;
 	className?: string;
 }
 
-const Laptop = ({ children, className = "" }: Props) => {
+const Laptop = ({ children, className = '' }: Props) => {
 	return (
 		<div className={`relative ${className}`}>
 			<Image src={laptop} alt="A laptop" />
