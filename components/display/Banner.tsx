@@ -1,47 +1,48 @@
-import { motion } from 'framer-motion';
-import React, { useRef } from 'react';
-
-interface Props {
+import React from 'react';
+interface BannerProps {
 	children: React.ReactNode;
 	className?: string;
 	duration?: number;
 }
 
-const Banner = ({ children, className, duration = 3 }: Props) => {
-	const childCount = React.Children.count(children);
+const Banner: React.FC<BannerProps> = ({
+	children,
+	className,
+	duration = 3,
+}) => {
+	const [animationPaused, setAnimationPaused] = React.useState(false);
+	const animationDuration = React.Children.count(children) * duration;
 
 	return (
 		<div
-			className={`relative max-w-full flex items-center w-screen overflow-x-hidden ${className}`}
+			className={`relative w-full flex items-center overflow-x-hidden ${className} `}
+			onMouseEnter={() => setAnimationPaused(true)}
+			onMouseLeave={() => setAnimationPaused(false)}
 		>
-			<motion.ul
+			<ul
 				className="absolute flex items-center min-w-full"
-				animate={{ x: ['0%', '-100%', '100%', '0%'] }}
-				transition={{
-					duration: childCount * duration,
-					times: [0, 1, 1, 2],
-					repeat: Infinity,
-					ease: 'linear',
+				style={{
+					animation: `marquee-left ${animationDuration}s linear infinite ${
+						animationPaused ? 'paused' : 'running'
+					}`,
 				}}
 			>
 				{React.Children.map(children, (child, index) => {
 					return <li key={index}>{child}</li>;
 				})}
-			</motion.ul>
-			<motion.ul
+			</ul>
+			<ul
 				className="absolute flex items-center min-w-full"
-				animate={{ x: ['100%', '0%', '-100%', '100%'] }}
-				transition={{
-					duration: childCount * duration,
-					times: [0, 1, 2, 2],
-					repeat: Infinity,
-					ease: 'linear',
+				style={{
+					animation: `marquee-right ${animationDuration}s linear infinite ${
+						animationPaused ? 'paused' : 'running'
+					}`,
 				}}
 			>
 				{React.Children.map(children, (child, index) => {
 					return <li key={index}>{child}</li>;
 				})}
-			</motion.ul>
+			</ul>
 		</div>
 	);
 };

@@ -16,4 +16,22 @@
 	.transition-rotate-then-top {
 		transition: transform 150ms 0ms ease-in-out, top 150ms 150ms ease-in-out;
 	}
+
+	@keyframes marquee-left {
+		0% {
+			transform: translateX(0);
+		}
+		100% {
+			transform: translateX(-100%);
+		}
+	}
+
+	@keyframes marquee-right {
+		0% {
+			transform: translateX(100%);
+		}
+		100% {
+			transform: translateX(0);
+		}
+	}
 }
