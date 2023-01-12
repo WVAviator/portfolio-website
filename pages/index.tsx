@@ -36,7 +36,8 @@ const Home = ({ technologies, projects }: Props) => {
 						<TechLogo
 							key={technology.slug.current}
 							technology={technology}
-							className="h-20 w-20 md:w-28 md:h-28 lg:w-36 lg:h-36"
+							className="md:w-28 md:h-28 lg:w-36 lg:h-36"
+							useSVG
 						/>
 					))}
 				</Banner>
@@ -49,6 +50,7 @@ export const getStaticProps: GetStaticProps = async () => {
 	const technologyQuery = `
 	*[_type == "technology"] | {
 		logo,
+		title,
 		slug
 	}
 	`;
