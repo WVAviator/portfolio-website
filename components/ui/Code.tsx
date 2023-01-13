@@ -1,23 +1,19 @@
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { tomorrowNight } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 
-interface Props {
-	language: string;
-	children: React.ReactNode;
+interface CodeProps {
+  language: string;
+  children: string;
 }
 
-const Code = ({ language, children }: Props) => {
-	return (
-		<SyntaxHighlighter
-			// customStyle={{
-			// 	width: "min(85vw, 100%)",
-			// 	margin: "0",
-			// }}
-			language={language || 'javascript'}
-			style={tomorrowNight}
-		>
-			{children}
-		</SyntaxHighlighter>
-	);
+const Code: React.FC<CodeProps> = ({ language, children }) => {
+  return (
+    <SyntaxHighlighter
+      language={language || 'javascript'}
+      style={tomorrowNight}
+    >
+      {children}
+    </SyntaxHighlighter>
+  );
 };
 export default Code;

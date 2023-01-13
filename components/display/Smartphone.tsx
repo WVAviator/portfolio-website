@@ -1,12 +1,12 @@
 import Image from 'next/image';
+import React from 'react';
 import smartphone from '/public/images/smartphone.png';
 
-interface Props {
-	children?: React.ReactNode;
+interface SmartphoneProps {
 	className?: string;
 }
 
-const Smartphone = ({ children, className = '' }: Props) => {
+const Smartphone: React.FC<React.PropsWithChildren<SmartphoneProps>> = ({ children, className = '' }) => {
 	return (
 		<div className={`relative ${className}`}>
 			<Image src={smartphone} alt="A smart phone" />

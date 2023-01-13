@@ -1,12 +1,13 @@
+import { NextPage } from 'next';
 import BlogHomeSection from '../../components/blog/BlogHomeSection';
 import sanityClient from '../../lib/sanity';
 import { BlogPost } from '../../types';
 
-interface Props {
+interface BlogHomePageProps {
 	posts: BlogPost[];
 }
 
-const BlogHomepage = ({ posts }: Props) => {
+const BlogHomePage: NextPage<BlogHomePageProps> = ({ posts }) => {
 	return (
 		<div className="page-container">
 			<BlogHomeSection posts={posts} />
@@ -35,4 +36,4 @@ export const getStaticProps = async () => {
 	};
 };
 
-export default BlogHomepage;
+export default BlogHomePage;
