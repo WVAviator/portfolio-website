@@ -1,61 +1,61 @@
 {
-	"name": "portfolio-website",
-	"version": "0.0.0",
-	"private": true,
-	"scripts": {
-		"dev": "concurrently \"next --port $PORT\" \"cd studio && sanity start\"",
-		"build": "echo 'Building Sanity to public/studio' && cd studio && sanity build ../public/studio -y && cd .. && next build",
-		"start": "vercel dev",
-		"postinstall": "lerna bootstrap",
-		"pre-commit": "lint-staged",
-		"format": "prettier --write ."
-	},
-	"lint-staged": {
-		"lib/**/*.{ts,tsx}": [
-			"eslint --fix",
-			"prettier --write",
-			"tsc --noEmit --composite false"
-		],
-		"components/**/*.{ts,tsx}": [
-			"eslint --fix",
-			"prettier --write",
-			"tsc --noEmit --composite false"
-		],
-		"pages/**/*.{ts,tsx}": [
-			"eslint --fix",
-			"prettier --write",
-			"tsc --noEmit --composite false"
-		]
-	},
-	"dependencies": {
-		"@heroicons/react": "^2.0.13",
-		"@portabletext/react": "^2.0.0",
-		"@sanity/client": "^4.0.1",
-		"framer-motion": "^8.4.2",
-		"next": "13.1.2",
-		"next-sanity": "^4.0.4",
-		"next-sanity-image": "^5.0.0",
-		"react": "18.2.0",
-		"react-dom": "18.2.0",
-		"react-syntax-highlighter": "^15.5.0",
-		"refractor": "^4.5.0"
-	},
-	"devDependencies": {
-		"@sanity/cli": "^3.2.3",
-		"@tailwindcss/typography": "^0.5.2",
-		"@types/node": "18.11.18",
-		"@types/react": "18.0.26",
-		"@types/react-syntax-highlighter": "^15.5.6",
-		"autoprefixer": "^10.4.2",
-		"concurrently": "^7.0.0",
-		"eslint": "8.31.0",
-		"eslint-config-next": "13.1.2",
-		"husky": "^8.0.3",
-		"lerna": "^6.4.1",
-		"lint-staged": "^13.1.0",
-		"postcss": "^8.4.8",
-		"prettier": "^2.6.0",
-		"tailwindcss": "^3.0.23",
-		"typescript": "4.9.4"
-	}
+  "name": "portfolio-website",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"next --port $PORT\" \"cd studio && yarn dev\"",
+    "build": "echo 'Building Sanity to public/studio' && cd studio && sanity build ../public/studio -y && cd .. && next build",
+    "start": "vercel dev",
+    "postinstall": "lerna bootstrap",
+    "pre-commit": "lint-staged",
+    "format": "prettier --write ."
+  },
+  "lint-staged": {
+    "lib/**/*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write",
+      "tsc --noEmit --composite false"
+    ],
+    "components/**/*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write",
+      "tsc --noEmit --composite false"
+    ],
+    "pages/**/*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write",
+      "tsc --noEmit --composite false"
+    ]
+  },
+  "dependencies": {
+    "@heroicons/react": "^2.0.13",
+    "@portabletext/react": "^2.0.0",
+    "@sanity/client": "^4.0.1",
+    "framer-motion": "^8.4.2",
+    "next": "13.1.2",
+    "next-sanity": "^4.0.4",
+    "next-sanity-image": "^5.0.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-syntax-highlighter": "^15.5.0",
+    "refractor": "^4.5.0"
+  },
+  "devDependencies": {
+    "@sanity/cli": "^3.2.3",
+    "@tailwindcss/typography": "^0.5.2",
+    "@types/node": "18.11.18",
+    "@types/react": "18.0.26",
+    "@types/react-syntax-highlighter": "^15.5.6",
+    "autoprefixer": "^10.4.2",
+    "concurrently": "^7.0.0",
+    "eslint": "8.31.0",
+    "eslint-config-next": "13.1.2",
+    "husky": "^8.0.3",
+    "lerna": "^6.4.1",
+    "lint-staged": "^13.1.0",
+    "postcss": "^8.4.8",
+    "prettier": "^2.6.0",
+    "tailwindcss": "^3.0.23",
+    "typescript": "4.9.4"
+  }
 }
