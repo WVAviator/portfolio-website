@@ -22,7 +22,7 @@ const Hero: React.FC<HeroProps> = ({ desktopImages, mobileImages }) => {
             <h1 className="text-4xl sm:text-5xl md:text-6xl text-center lg:text-left">
               Professional web design and development for your business
             </h1>
-            <Button href="/" endIcon={<ArrowRightIcon />}>
+            <Button href="/portfolio" endIcon={<ArrowRightIcon />}>
               View Portfolio
             </Button>
           </div>
