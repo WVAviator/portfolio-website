@@ -1,4 +1,4 @@
-interface Props {
+interface InitialsProps {
 	strokeWidth?: string;
 	size?: number;
 	fill?: string;
@@ -6,13 +6,13 @@ interface Props {
 	className?: string;
 }
 
-const Initials = ({
+const Initials: React.FC<InitialsProps> = ({
 	strokeWidth = '2.5',
 	size = 57,
 	fill = 'none',
 	svgClasses = 'stroke-primary-400',
 	className = '',
-}: Props) => {
+}) => {
 	const ASPECT_RATIO = 51 / 57;
 	const width = size.toString();
 	const height = (size * ASPECT_RATIO).toString();

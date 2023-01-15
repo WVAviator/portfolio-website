@@ -4,35 +4,36 @@ import { Technology } from '../../types';
 import SanityImage from '../sanity/SanityImage';
 
 interface TechLogoProps {
-	technology: Technology;
-	className?: string;
-	useSVG?: boolean;
+  technology: Technology;
+  className?: string;
+  useSVG?: boolean;
 }
 
 const TechLogo: React.FC<TechLogoProps> = ({
-	technology,
-	className = 'w-36 h-36',
-	useSVG = false,
+  technology,
+  className = 'w-36 h-36',
+  useSVG = false,
 }) => {
-	return (
-		<Link href={`/technology/${technology.slug.current}`}>
-			<a>
-				<div
-					className={`flex items-center justify-center relative hover:scale-110 transition-transform duration-200 cursor-pointer p-6 ${className}`}
-				>
-					{useSVG ? (
-						<Image
-							src={`/images/technologies/${technology.slug.current}.svg`}
-							alt={`Logo for ${technology.title}`}
-							layout="fill"
-							lazyBoundary="200%"
-						/>
-					) : (
-						<SanityImage source={technology.logo} layout="fill" />
-					)}
-				</div>
-			</a>
-		</Link>
-	);
+  return (
+    <Link href={`/technology/${technology.slug.current}`}>
+      <div
+        className={`flex flex-col items-center justify-center relative hover:scale-110 transition-transform duration-200 cursor-pointer p-6 not-prose ${className}`}
+      >
+        {useSVG ? (
+          <Image
+            src={`/images/technologies/${technology.slug.current}.svg`}
+            alt={`Logo for ${technology.title}`}
+            fill
+          />
+        ) : (
+          <SanityImage
+            source={technology.logo}
+            layout="fill"
+            alt={technology.title}
+          />
+        )}
+      </div>
+    </Link>
+  );
 };
 export default TechLogo;

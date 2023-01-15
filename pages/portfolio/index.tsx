@@ -1,26 +1,27 @@
 import sanityClient from '../../lib/sanity';
 import ProjectPreview from '../../components/layout/ProjectPreview';
 import { Project } from '../../types';
+import { NextPage } from 'next';
 
-interface Props {
-	projects: Project[];
+interface ProjectHomePageProps {
+  projects: Project[];
 }
 
-const ProjectHomepage = ({ projects }: Props) => {
-	return (
-		<div className="page-container">
-			<h1 className="text-2xl my-8">Projects</h1>
-			<div className="flex flex-col gap-8">
-				{projects.map((project) => (
-					<ProjectPreview project={project} key={project._id} />
-				))}
-			</div>
-		</div>
-	);
+const ProjectHomePage: NextPage<ProjectHomePageProps> = ({ projects }) => {
+  return (
+    <div className="page-container">
+      <h1 className="text-2xl my-8">Projects</h1>
+      <div className="flex flex-col gap-8">
+        {projects.map((project) => (
+          <ProjectPreview project={project} key={project._id} />
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export const getStaticProps = async () => {
-	const query = `
+  const query = `
 	*[_type == "project"] | order(_updatedAt desc) {
 		title,
 		slug,
@@ -33,14 +34,14 @@ export const getStaticProps = async () => {
 	}
 	`;
 
-	const projects: Project[] = await sanityClient.fetch(query);
+  const projects: Project[] = await sanityClient.fetch(query);
 
-	return {
-		props: {
-			projects,
-		},
-		revalidate: 600,
-	};
+  return {
+    props: {
+      projects,
+    },
+    revalidate: 600,
+  };
 };
 
-export default ProjectHomepage;
+export default ProjectHomePage;
