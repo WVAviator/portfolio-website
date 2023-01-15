@@ -1,5 +1,7 @@
+import { StaticImageData } from 'next/image';
+
 export interface SlideshowImage {
-	src: StaticImageData | string;
-	alt: string;
-	href?: string;
+  src: StaticImageData | string;
+  alt: string;
+  href?: string;
 }
