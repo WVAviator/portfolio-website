@@ -23,6 +23,7 @@ const TechLogo: React.FC<TechLogoProps> = ({
           <Image
             src={`/images/technologies/${technology.slug.current}.svg`}
             alt={`Logo for ${technology.title}`}
+            loading="eager"
             fill
           />
         ) : (
