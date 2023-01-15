@@ -6,7 +6,6 @@ import Sidebar from '../../components/blog/Sidebar';
 import TechStack from '../../components/display/TechStack';
 import Laptop from '../../components/display/Laptop';
 import SanityImage from '../../components/sanity/SanityImage';
-import Link from 'next/link';
 import Smartphone from '../../components/display/Smartphone';
 
 interface ProjectPageProps {
@@ -14,7 +13,6 @@ interface ProjectPageProps {
 }
 
 const ProjectPage: NextPage<ProjectPageProps> = ({ project }) => {
-  console.log(project);
   return (
     <div className="page-container">
       <div className="flex">
