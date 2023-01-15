@@ -1,7 +1,10 @@
 {
   "name": "portfolio-website",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "private": true,
+  "engines": {
+    "node": ">=16.0.0"
+  },
   "scripts": {
     "dev": "concurrently \"next --port $PORT\" \"cd studio && yarn dev\"",
     "build": "echo 'Building Sanity to public/studio' && cd studio && sanity build ../public/studio -y && cd .. && next build",
