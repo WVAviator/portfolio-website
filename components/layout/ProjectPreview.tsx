@@ -4,6 +4,7 @@ import Laptop from '../display/Laptop';
 import Smartphone from '../display/Smartphone';
 import SanityImage from '../sanity/SanityImage';
 import Button from '../ui/Button';
+import { WindowIcon, CodeBracketIcon } from '@heroicons/react/24/solid';
 
 interface ProjectPreviewProps {
   project: Project;
@@ -25,10 +26,18 @@ const ProjectPreview: React.FC<ProjectPreviewProps> = ({ project }) => {
         </Link>
         <p className="text-sm">{project.description}</p>
         <div className="flex flex-row gap-6 mx-auto md:mx-0">
-          <Button href={project.projectUrl} className="btn btn-primary">
+          <Button
+            href={project.projectUrl}
+            className="btn btn-primary"
+            endIcon={<WindowIcon />}
+          >
             <span>Published Project</span>
           </Button>
-          <Button href={project.githubUrl} className="btn btn-primary">
+          <Button
+            href={project.githubUrl}
+            className="btn btn-primary"
+            endIcon={<CodeBracketIcon />}
+          >
             <span>GitHub Repo</span>
           </Button>
         </div>

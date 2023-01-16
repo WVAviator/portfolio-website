@@ -6,6 +6,8 @@ import Banner from '../components/display/Banner';
 import SanityImage from '../components/sanity/SanityImage';
 import Link from 'next/link';
 import TechLogo from '../components/display/TechLogo';
+import Image from 'next/image';
+import FlexLayout from '../components/layout/FlexLayout';
 
 interface HomePageProps {
   technologies: Technology[];
@@ -36,11 +38,38 @@ const HomePage: NextPage<HomePageProps> = ({ technologies, projects }) => {
             <TechLogo
               key={technology.slug.current}
               technology={technology}
-              className="md:w-28 md:h-28 lg:w-36 lg:h-36"
+              className="w-28 h-28 lg:w-36 lg:h-36"
               useSVG
             />
           ))}
         </Banner>
+      </section>
+      <section>
+        <FlexLayout className="relative">
+          <div className="flex justify-center items-center h-[300px] w-[300px] old-paper">
+            <Image
+              src="/images/headshot.jpg"
+              alt="Alexander Durham"
+              fill
+              style={{
+                objectFit: 'cover',
+              }}
+            />
+          </div>
+
+          <div className="flex flex-col items-center min-w-[200px]">
+            <h2 className="mb-2 text-lg font-bold w-full text-center md:text-left">
+              About Me
+            </h2>
+            <p className="prose">
+              I am a software engineer transitioning from a career in airline
+              management. I am a fast and enthusiastic learner with excellent
+              creative problem-solving skills. I am passionate about full-stack
+              development, game development, and computer science. I am open to
+              new opportunities and would love to hear from you.
+            </p>
+          </div>
+        </FlexLayout>
       </section>
     </>
   );
