@@ -12,7 +12,7 @@ interface ProjectPreviewProps {
 
 const ProjectPreview: React.FC<ProjectPreviewProps> = ({ project }) => {
   return (
-    <article className="flex flex-wrap gap-10 md:flex-nowrap items-center justify-center shadow-md bg-slate-100 py-6 max-h-[34rem] md:max-h-[19rem]">
+    <article className="flex flex-wrap gap-10 md:flex-nowrap items-center justify-center shadow-lg bg-slate-100 py-6 max-h-[34rem] md:max-h-[19rem]">
       <div
         className={
           'px-6 text-center md:text-left md:w-[50%] flex flex-col gap-6'

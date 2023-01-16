@@ -8,12 +8,15 @@ interface CodeProps {
 
 const Code: React.FC<CodeProps> = ({ language, children }) => {
   return (
-    <SyntaxHighlighter
-      language={language || 'javascript'}
-      style={tomorrowNight}
-    >
-      {children}
-    </SyntaxHighlighter>
+    <div className="not-prose text-sm rounded-md shadow-lg overflow-y-hidden overflow-x-hidden">
+      <SyntaxHighlighter
+        wrapLongLines
+        language={language || 'javascript'}
+        style={tomorrowNight}
+      >
+        {children}
+      </SyntaxHighlighter>
+    </div>
   );
 };
 export default Code;

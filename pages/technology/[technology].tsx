@@ -21,19 +21,18 @@ const TechnologyPage: NextPage<TechnologyPageProps> = ({
       <div className="flex">
         <Prose post={technology} />
         <Sidebar>
-          <h2 className="text-xl font-bold mb-8">
+          <h2 className="text-2xl pen-drawn mb-6 font-bold">
             {technology.title} Projects
           </h2>
           <ul>
-            {projects.map((project) => (
-              <li key={project.slug.current}>
-                <Link
-                  href={`/portfolio/${project.slug.current}`}
-                  className="not-prose"
-                >
-                  <ProjectShowcase project={project} />
-                </Link>
-              </li>
+            {projects.map((project, index) => (
+              <>
+                <li key={project.slug.current}>
+                    <ProjectShowcase project={project} />
+                </li>
+                {index < projects.length - 1 && <hr className="mb-6" />}
+              </>
+            
             ))}
           </ul>
         </Sidebar>

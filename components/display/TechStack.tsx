@@ -17,14 +17,14 @@ const TechStack: React.FC<TechStackProps> = ({
 
   return (
     <div className="prose prose-sm flex flex-col items-center gap-6">
-      <h2>{headerText}</h2>
+      <h2 className="pen-drawn">{headerText}</h2>
       <div className="flex flex-wrap gap-6 justify-center items-center">
         {techStack.map((tech) => {
           return (
             <TechLogo
               technology={tech}
               key={tech.slug.current}
-              className="w-24 h-24 shadow-md hover:shadow-lg"
+              className="w-24 h-24 shadow-md hover:shadow-lg bg-white"
               useSVG
             />
           );

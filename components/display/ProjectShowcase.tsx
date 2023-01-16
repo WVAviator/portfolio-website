@@ -6,15 +6,27 @@ import SanityImage from '../sanity/SanityImage';
 import Laptop from './Laptop';
 import Smartphone from './Smartphone';
 
+type ProjectLinkType = 'portfolio' | 'github' | 'published';
 interface ProjectShowcaseProps {
   project: Project;
+  alternateTitle?: string;
+  linkType?: ProjectLinkType;
 }
 
-const ProjectShowcase: NextPage<ProjectShowcaseProps> = ({ project }) => {
+const ProjectShowcase: NextPage<ProjectShowcaseProps> = ({
+  project,
+  alternateTitle,
+  linkType = 'portfolio',
+}) => {
+  const linkUrl = {
+    portfolio: `/portfolio/${project.slug.current}`,
+    github: project.githubUrl,
+    published: project.projectUrl,
+  }[linkType];
   return (
-    <Link href={`/portfolio/${project.slug.current}`}>
-      <h3 className="text-center text-lg">{project.title}</h3>
-      <div className="lg:p-6 relative flex flex-col items-center cursor-pointer transition-transform hover:scale-105 duration-200">
+    <Link href={linkUrl} className="prose prose-sm flex flex-col items-center">
+      <h2 className="pen-drawn">{alternateTitle || project.title}</h2>
+      <div className="lg:p-6 relative flex flex-col items-center cursor-pointer transition-transform hover:scale-105 duration-200 not-prose">
         {project.desktopView && (
           <Laptop className="max-w-[100%]">
             <SanityImage source={project.desktopView} alt={project.title} />
