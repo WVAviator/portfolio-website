@@ -203,4 +203,21 @@
       transform: translateX(0);
     }
   }
+
+  .animate-initials-svg {
+    stroke-dasharray: 333.08599;
+    animation: initials-svg 1.5s linear infinite;
+  }
+
+  @keyframes initials-svg {
+    0% {
+      stroke-dashoffset: 333.08599;
+    }
+    80% {
+      stroke-dashoffset: 0;
+    }
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
 }

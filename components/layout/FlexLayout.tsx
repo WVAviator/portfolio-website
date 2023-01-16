@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface FlexLayoutProps {
-  className: string;
+  className?: string;
 }
 
 const FlexLayout: React.FC<React.PropsWithChildren<FlexLayoutProps>> = ({

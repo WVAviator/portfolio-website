@@ -8,6 +8,7 @@ import Link from 'next/link';
 import TechLogo from '../components/display/TechLogo';
 import Image from 'next/image';
 import FlexLayout from '../components/layout/FlexLayout';
+import ContactForm from '../components/ui/ContactForm';
 
 interface HomePageProps {
   technologies: Technology[];
@@ -33,7 +34,7 @@ const HomePage: NextPage<HomePageProps> = ({ technologies, projects }) => {
             high-performance applications
           </h1>
         </div>
-        <Banner className="h-20 md:h-28 lg:h-36">
+        <Banner className="h-28 md:h-28 lg:h-36">
           {technologies.map((technology) => (
             <TechLogo
               key={technology.slug.current}
@@ -60,7 +61,7 @@ const HomePage: NextPage<HomePageProps> = ({ technologies, projects }) => {
           </div>
 
           <div className="flex flex-col items-center min-w-[200px]">
-            <h2 className="mb-2 text-xl font-medium w-full text-center md:text-left pen-drawn">
+            <h2 className="mb-6 text-2xl font-medium w-full text-center md:text-left pen-drawn">
               About Me
             </h2>
             <p className="prose">
@@ -71,6 +72,11 @@ const HomePage: NextPage<HomePageProps> = ({ technologies, projects }) => {
               new opportunities and would love to hear from you.
             </p>
           </div>
+        </FlexLayout>
+      </section>
+      <section>
+        <FlexLayout>
+          <ContactForm />
         </FlexLayout>
       </section>
     </>

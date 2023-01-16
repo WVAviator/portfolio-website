@@ -11,7 +11,7 @@ const HeaderNavigation = () => {
       <MenuIcon open={open} setOpen={setOpen} />
       <MainNavigation open={open} setOpen={setOpen} />
       <Button href="/" className="hidden lg:block">
-        Get a Quote
+        Hire Me
       </Button>
     </nav>
   );
