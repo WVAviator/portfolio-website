@@ -25,6 +25,7 @@ export const getStaticProps = async () => {
 	*[_type == "project"] | order(_updatedAt desc) {
 		title,
 		slug,
+    _id,
 		description,
 		desktopView,
         mobileView,

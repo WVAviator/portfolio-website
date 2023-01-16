@@ -7,6 +7,7 @@ import TechStack from '../../components/display/TechStack';
 import Laptop from '../../components/display/Laptop';
 import SanityImage from '../../components/sanity/SanityImage';
 import Smartphone from '../../components/display/Smartphone';
+import ProjectShowcase from '../../components/display/ProjectShowcase';
 
 interface ProjectPageProps {
   project: Project;
@@ -18,35 +19,8 @@ const ProjectPage: NextPage<ProjectPageProps> = ({ project }) => {
       <div className="flex">
         <Prose post={project} />
         <Sidebar>
-          <a
-            className="group transition-transform hover:scale-105 duration-200"
-            href={project.projectUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div className="p-6 lg:p-6 flex flex-col items-center w-[24rem] cursor-pointer  max-h-[16rem] ">
-              {project.desktopView && (
-                <Laptop className="max-w-[100%]">
-                  <SanityImage
-                    source={project.desktopView}
-                    alt={project.title}
-                  />
-                </Laptop>
-              )}
-              {project.mobileView && (
-                <Smartphone className="max-w-[20%] -translate-y-[110%] -translate-x-[180%]">
-                  <SanityImage
-                    source={project.mobileView}
-                    alt={project.title}
-                  />
-                </Smartphone>
-              )}
-            </div>
-            <p className="text-center mt-2 group-hover:text-cyan-400">
-              View Project
-            </p>
-          </a>
-          <div className="h-[1px] bg-slate-200 w-[90%] my-10"></div>
+          <ProjectShowcase project={project} alternateTitle="View Project" linkType="published" />
+          <hr className="mb-6" />
           <TechStack techStack={project.techStack} headerText="Tech Stack" />
         </Sidebar>
       </div>
