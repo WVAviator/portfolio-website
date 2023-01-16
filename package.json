@@ -34,7 +34,6 @@
     "@heroicons/react": "^2.0.13",
     "@portabletext/react": "^2.0.0",
     "@sanity/client": "^4.0.1",
-    "framer-motion": "^8.4.2",
     "next": "13.1.2",
     "next-sanity": "^4.0.4",
     "next-sanity-image": "^5.0.0",

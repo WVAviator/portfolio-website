@@ -7,7 +7,7 @@ const HeaderNavigation = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="flex gap-12 justify-between items-center">
+    <nav className="flex justify-between items-center lg:gap-12">
       <MenuIcon open={open} setOpen={setOpen} />
       <MainNavigation open={open} setOpen={setOpen} />
       <Button href="/" className="hidden lg:block">
