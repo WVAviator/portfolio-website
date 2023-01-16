@@ -69,6 +69,7 @@ const Socials = ({
           ...social.props,
           dark: dark,
           className: socialClasses,
+          key: social.name,
         })
       )}
     </div>
