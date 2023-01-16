@@ -28,9 +28,9 @@ const HomePage: NextPage<HomePageProps> = ({ technologies, projects }) => {
       />
       <section>
         <div className="w-full flex items-center justify-center text-center">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl max-w-[40rem] mb-12">
-            Leveraging cutting-edge technologies to deliver high-performance
-            websites and applications
+          <h1 className="text-2xl sm:text-3xl md:text-4xl max-w-[40rem] mb-12 pen-drawn">
+            Leveraging cutting-edge technologies to deliver scalable,
+            high-performance applications
           </h1>
         </div>
         <Banner className="h-20 md:h-28 lg:h-36">
@@ -47,18 +47,20 @@ const HomePage: NextPage<HomePageProps> = ({ technologies, projects }) => {
       <section>
         <FlexLayout className="relative">
           <div className="flex justify-center items-center h-[300px] w-[300px] old-paper">
-            <Image
-              src="/images/headshot.jpg"
-              alt="Alexander Durham"
-              fill
-              style={{
-                objectFit: 'cover',
-              }}
-            />
+            <div className="clip h-[300px] w-[300px]">
+              <Image
+                src="/images/headshot.jpg"
+                alt="Alexander Durham"
+                fill
+                style={{
+                  objectFit: 'cover',
+                }}
+              />
+            </div>
           </div>
 
           <div className="flex flex-col items-center min-w-[200px]">
-            <h2 className="mb-2 text-lg font-bold w-full text-center md:text-left">
+            <h2 className="mb-2 text-xl font-medium w-full text-center md:text-left pen-drawn">
               About Me
             </h2>
             <p className="prose">

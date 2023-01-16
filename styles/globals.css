@@ -17,11 +17,59 @@
     transition: transform 150ms 0ms ease-in-out, top 150ms 150ms ease-in-out;
   }
 
+	.pen-drawn {
+		color:rgb(19, 17, 16);
+		text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.934);
+	}
+  .paper-texture {
+    position: relative;
+  }
+
+  .paper-texture::before {
+    content: '';
+    background-image: url('/images/textures/paper.png');
+    background-repeat: repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+		z-index: -1;
+    opacity: 0.6;
+  }
+
+	.paper-texture::after {
+		content: '';
+		background-color: rgb(255, 254, 253);
+		position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+		z-index: -2;
+	}
+
   .old-paper {
     filter: drop-shadow(-1px 6px 5px rgba(50, 50, 0, 0.7)) sepia(0.2);
   }
 
-  .old-paper img {
+  .old-paper .clip::after {
+    content: '';
+    background-image: url('/images/textures/handmade-paper.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    opacity: 0.8;
+  }
+
+  .old-paper .clip {
     -webkit-clip-path: polygon(
       4% 1%,
       15% 2%,
