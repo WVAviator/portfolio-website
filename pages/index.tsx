@@ -9,6 +9,8 @@ import TechLogo from '../components/display/TechLogo';
 import Image from 'next/image';
 import FlexLayout from '../components/layout/FlexLayout';
 import ContactForm from '../components/ui/ContactForm';
+import Logo from '../components/brand/Logo';
+import Socials from '../components/brand/Socials';
 
 interface HomePageProps {
   technologies: Technology[];
@@ -71,6 +73,10 @@ const HomePage: NextPage<HomePageProps> = ({ technologies, projects }) => {
               development, game development, and computer science. I am open to
               new opportunities and would love to hear from you.
             </p>
+            <Socials
+              className="mt-6 md:self-start"
+              socialClasses="w-12 h-12 md:w-8 md:h-8"
+            />
           </div>
         </FlexLayout>
       </section>
@@ -79,6 +85,22 @@ const HomePage: NextPage<HomePageProps> = ({ technologies, projects }) => {
           <ContactForm />
         </FlexLayout>
       </section>
+      <footer className="w-full bg-black flex flex-col gap-8 items-center justify-center p-6 md:flex-row md:justify-between">
+        <div className="flex flex-col justify-center items-center gap-2">
+          <Logo />
+          <div>
+            <p className="text-cyan-400 text-sm">
+              &copy; {new Date().getFullYear()}{' '}
+              <span className="xsm:hidden">Alexander Durham</span>
+            </p>
+          </div>
+        </div>
+        <Socials
+          dark
+          className="lg:w-[33%]"
+          socialClasses="w-8 h-8 md:w-12 md:h-12"
+        />
+      </footer>
     </>
   );
 };
