@@ -1,8 +1,12 @@
 import Link from 'next/link';
 import react from 'react';
 
-interface ButtonProps {
-  href: string;
+interface ButtonProps
+  extends React.DetailedHTMLProps<
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  > {
+  href?: string;
   variant?: 'filled' | 'outlined' | 'ghost';
   children?: React.ReactNode;
   className?: string;
@@ -15,6 +19,7 @@ const Button: React.FC<ButtonProps> = ({
   children = '',
   className = '',
   endIcon = null,
+  ...rest
 }) => {
   const variantClasses = {
     filled:
@@ -24,15 +29,14 @@ const Button: React.FC<ButtonProps> = ({
     ghost: 'text-primary-400 hover:bg-primary-400/10 active:bg-primary-500/10',
   };
 
-  return (
-    <>
-      <Link
-        href={href}
-        className={
-          `${variantClasses[variant]} transition-all duration-200 ease-in-out py-2 px-4 rounded active:scale-95 focus:ring-2 focus:ring-primary-300/50 whitespace-nowrap ` +
-          className
-        }
-      >
+  const button = (
+    <div
+      className={
+        `${variantClasses[variant]} transition-all duration-200 ease-in-out py-2 px-4 rounded active:scale-95 focus:ring-2 focus:ring-primary-300/50 whitespace-nowrap ` +
+        className
+      }
+    >
+      <button {...rest}>
         <span className="flex items-center">
           {children}
 
@@ -41,8 +45,14 @@ const Button: React.FC<ButtonProps> = ({
               className: 'w-5 h-5 ml-2',
             })}
         </span>
-      </Link>
-    </>
+      </button>
+    </div>
   );
+
+  if (!href) {
+    return button;
+  }
+
+  return <Link href={href}>{button}</Link>;
 };
 export default Button;

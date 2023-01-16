@@ -16,14 +16,16 @@ const PostHeader: React.FC<PostHeaderProps> = ({
   const formattedDate = new Date(updated).toLocaleDateString();
 
   return (
-    <div className="prose md:prose-lg lg:prose-xl prose-slate mb-10">
+    <div>
       <p>
         Updated <time>{formattedDate}</time>
       </p>
-      <h1>{title}</h1>
+      <h1 className="pen-drawn">{title}</h1>
 
-      <div className="relative w-100 aspect-[2] rounded shadow-md overflow-hidden">
-        {headerImage && <SanityImage source={headerImage} alt={title} />}
+      <div className="relative w-100 aspect-[2] rounded shadow-md overflow-hidden not-prose">
+        {headerImage && (
+          <SanityImage source={headerImage} alt={title} className="w-full h-full object-cover" />
+        )}
       </div>
     </div>
   );
