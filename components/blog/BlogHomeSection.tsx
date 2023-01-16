@@ -9,7 +9,7 @@ interface BlogHomeSectionProps {
 
 const BlogHomeSection: React.FC<BlogHomeSectionProps> = ({ posts }) => {
   return (
-    <section className="p-4">
+    <section className="py-4">
       <ul className="flex gap-2">
         {posts.map((post) => (
           <li key={post.slug.current}>
