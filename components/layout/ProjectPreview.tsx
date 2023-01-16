@@ -12,10 +12,10 @@ interface ProjectPreviewProps {
 
 const ProjectPreview: React.FC<ProjectPreviewProps> = ({ project }) => {
   return (
-    <article className="flex flex-wrap gap-10 md:flex-nowrap items-center justify-center shadow-lg bg-slate-100 py-6 max-h-[34rem] md:max-h-[19rem]">
+    <article className="flex flex-wrap gap-10 md:flex-nowrap items-center justify-center shadow-lg bg-slate-100 py-6 md:max-h-[19rem]">
       <div
         className={
-          'px-6 text-center md:text-left md:w-[50%] flex flex-col gap-6'
+          'px-8 text-center md:text-left md:w-[50%] flex flex-col gap-6'
         }
       >
         <Link
@@ -24,8 +24,8 @@ const ProjectPreview: React.FC<ProjectPreviewProps> = ({ project }) => {
         >
           <h2 className="text-xl  hover:text-cyan-400">{project.title}</h2>
         </Link>
-        <p className="text-sm">{project.description}</p>
-        <div className="flex flex-row gap-6 mx-auto md:mx-0">
+        <p className="text-sm max-w-full">{project.description}</p>
+        <div className="flex flex-col md:flex-row gap-6 mx-auto md:mx-0">
           <Button
             href={project.projectUrl}
             className="btn btn-primary"

@@ -7,7 +7,7 @@ const PageLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
     <>
       <DefaultHead />
       <Header />
-      <main className="paper-texture min-h-screen">{children}</main>
+      <main className="paper-texture min-h-screen overflow-x-hidden">{children}</main>
     </>
   );
 };
