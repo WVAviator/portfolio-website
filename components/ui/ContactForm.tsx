@@ -42,7 +42,9 @@ const ContactForm = () => {
         setResponseMessage('');
       }, 2000);
     } else {
-      setResponseMessage('Something went wrong. Please try again.');
+      setResponseMessage(
+        'Something went wrong. Please try again or reach out to me through LinkedIn.'
+      );
       setTimeout(() => {
         setModalOpen(false);
         setResponseMessage('');
@@ -104,6 +106,7 @@ const ContactForm = () => {
             rows={5}
             value={message}
             required
+            maxLength={500}
             onChange={(e) => setMessage(e.target.value)}
             className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
           ></textarea>
