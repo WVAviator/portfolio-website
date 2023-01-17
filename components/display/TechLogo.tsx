@@ -25,7 +25,7 @@ const TechLogo: React.FC<TechLogoProps> = ({
   return (
     <Link href={`/technology/${technology.slug.current}`}>
       <div
-        className={`flex flex-col items-center justify-center relative hover:scale-110 transition-transform duration-200 cursor-pointer p-6 not-prose ${className}`}
+        className={`flex flex-col items-center justify-center relative hover:scale-110 transition-transform duration-200 cursor-pointer p-6 not-prose drop-shadow-lg ${className}`}
       >
         {useSVG && !error ? (
           <Image
