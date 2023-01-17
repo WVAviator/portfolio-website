@@ -52,7 +52,7 @@
   }
 
   .old-paper {
-    filter: drop-shadow(-1px 6px 5px rgba(50, 50, 0, 0.7)) sepia(0.2);
+    filter: drop-shadow(-1px 6px 5px rgba(50, 50, 0, 0.7));
   }
 
   .old-paper .clip::after {
@@ -70,6 +70,7 @@
   }
 
   .old-paper .clip {
+    filter: sepia(0.2);
     -webkit-clip-path: polygon(
       4% 1%,
       15% 2%,
