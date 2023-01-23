@@ -10,7 +10,7 @@ const HeaderNavigation = () => {
     <nav className="flex justify-between items-center lg:gap-12">
       <MenuIcon open={open} setOpen={setOpen} />
       <MainNavigation open={open} setOpen={setOpen} />
-      <Button href="/" className="hidden lg:block">
+      <Button href="#contactme" className="hidden lg:block">
         Hire Me
       </Button>
     </nav>

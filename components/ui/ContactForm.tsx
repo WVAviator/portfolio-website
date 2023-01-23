@@ -53,7 +53,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="px-4 w-screen max-w-[50ch] h-[400px]">
+    <div id="contactme" className="px-4 w-screen max-w-[50ch] h-[400px]">
       <Modal
         open={modalOpen}
         onClose={() => {
