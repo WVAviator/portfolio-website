@@ -18,8 +18,12 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       project: 'portfolio',
     };
 
+    console.log('Received revalidation request with body:', req.body);
+
     const { slug, type } = req.body as {
-      slug: string;
+      slug: {
+        current: string;
+      };
       type: keyof typeof typeTranslation;
     };
 
@@ -27,13 +31,15 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       return res.status(400).json({ message: 'Invalid type' });
     }
 
-    const revalidationUrl = `/${typeTranslation[type]}/${slug}`;
+    const revalidationUrl = `/${typeTranslation[type]}/${slug.current}`;
     console.log('Revalidating', revalidationUrl);
 
     await res.revalidate(revalidationUrl);
     return res.json({ message: 'Successfully revalidated!' });
   } catch (err) {
-    return res.status(500).send('Error revalidating');
+    return res
+      .status(500)
+      .send(`Error occurred in revalidation process: ${err}`);
   }
 };
 
