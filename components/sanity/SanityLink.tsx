@@ -11,7 +11,7 @@ const SanityLink: React.FC<SanityLinkProps> = ({
 	children,
 	className = '',
 }) => {
-	const href = value.href || '#';
+	const href = value?.href ?? '#';
 	const isInternalLink =
 		href && (href.startsWith('/') || href.startsWith('#'));
 
