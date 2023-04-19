@@ -7,7 +7,7 @@ import Code from '../ui/Code';
 import IFrame from '../ui/IFrame';
 
 interface ProseProps {
-  post: SanityPost;
+  post: Omit<SanityPost, 'header'> & Partial<{ header: SanityImageAsset }>;
 }
 
 const components: Partial<PortableTextReactComponents> = {
@@ -34,11 +34,13 @@ const components: Partial<PortableTextReactComponents> = {
 const Prose: React.FC<ProseProps> = ({ post }) => {
   return (
     <article className="prose md:prose-lg lg:prose-xl prose-slate prose-a:cursor-pointer hover:prose-a:text-primary-400 prose-a:transition-colors prose-a:duration-200 prose-code:before:content-[''] prose-code:after:content-[''] max-w-full md:max-w-[65ch] relative">
-      <PostHeader
-        updated={post._updatedAt}
-        title={post.title}
-        headerImage={post.header}
-      />
+      {post.header && (
+        <PostHeader
+          updated={post._updatedAt}
+          title={post.title}
+          headerImage={post.header}
+        />
+      )}
 
       <PortableText value={post.body} components={components} />
     </article>
