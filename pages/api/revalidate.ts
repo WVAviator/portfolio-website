@@ -50,10 +50,15 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 			});
 		}
 
-		const revalidationUrl = `/${typeTranslation[type]}/${slug.current}`;
-		console.log('Revalidating', revalidationUrl);
+		const resourceUrl = `/${typeTranslation[type]}/${slug.current}`;
+		const summaryUrl = `/${typeTranslation[type]}`;
+		const homeUrl = `/`;
 
-		await res.revalidate(revalidationUrl);
+		console.log('Revalidating', revalidationUrl);
+		await res.revalidate(resourceUrl);
+		await res.revalidate(summaryUrl);
+		await res.revalidate(homeUrl);
+
 		return res.json({
 			message: 'Successfully revalidated!',
 			revalidated: true,
