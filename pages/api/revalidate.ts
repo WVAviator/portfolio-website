@@ -54,7 +54,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 		const summaryUrl = `/${typeTranslation[type]}`;
 		const homeUrl = `/`;
 
-		console.log('Revalidating', revalidationUrl);
+		console.log('Revalidating', resourceUrl);
 		await res.revalidate(resourceUrl);
 		await res.revalidate(summaryUrl);
 		await res.revalidate(homeUrl);
