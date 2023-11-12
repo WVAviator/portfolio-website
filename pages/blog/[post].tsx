@@ -14,6 +14,9 @@ const BlogPostPage: NextPage<BlogPostPageProps> = ({ post }) => {
   return (
     <>
       <NextSeo
+        title={post.title}
+        description={post.description}
+        canonical={`https://www.wvaviator.com/blog/${post.slug.current}`}
         openGraph={{
           type: 'website',
           url: `https://www.wvaviator.com/blog/${post.slug.current}`,
