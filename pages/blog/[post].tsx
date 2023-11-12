@@ -4,6 +4,7 @@ import { BlogPost } from '../../types';
 import Prose from '../../components/blog/Prose';
 import Sidebar from '../../components/blog/Sidebar';
 import TechStack from '../../components/display/TechStack';
+import { ArticleJsonLd, NextSeo } from 'next-seo';
 
 interface BlogPostPageProps {
   post: BlogPost;
@@ -11,14 +12,43 @@ interface BlogPostPageProps {
 
 const BlogPostPage: NextPage<BlogPostPageProps> = ({ post }) => {
   return (
-    <div className="page-container">
-      <div className="flex">
-        <Prose post={post} />
-        <Sidebar>
-          <TechStack techStack={post.relatedTechnologies} />
-        </Sidebar>
+    <>
+      <NextSeo
+        openGraph={{
+          type: 'website',
+          url: `https://www.wvaviator.com/blog/${post.slug.current}`,
+          title: post.title,
+          description: post.description,
+          images: [
+            {
+              url: post.mainImage.asset.url,
+              width: 800,
+              height: 600,
+              alt: post.mainImage.alt,
+            },
+          ],
+        }}
+      />
+      <ArticleJsonLd
+        url={`https://www.wvaviator.com/blog/${post.slug.current}`}
+        title={post.title}
+        description={post.description}
+        images={[post.mainImage.asset.url]}
+        datePublished={post._createdAt}
+        dateModified={post._updatedAt}
+        authorName="Alexander Durham"
+        publisherName="Alexander Durham"
+        publisherLogo="https://www.wvaviator.com/images/logo.svg"
+      />
+      <div className="page-container">
+        <div className="flex">
+          <Prose post={post} />
+          <Sidebar>
+            <TechStack techStack={post.relatedTechnologies} />
+          </Sidebar>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
@@ -34,7 +64,13 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 		},
 		relatedProjects,
 		header,
-		mainImage,
+		mainImage{
+      ...,
+      asset->{
+        ...,
+        url
+      }
+    },
 		body,
 		_updatedAt
 	}
