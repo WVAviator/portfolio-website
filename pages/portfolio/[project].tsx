@@ -8,23 +8,75 @@ import Laptop from '../../components/display/Laptop';
 import SanityImage from '../../components/sanity/SanityImage';
 import Smartphone from '../../components/display/Smartphone';
 import ProjectShowcase from '../../components/display/ProjectShowcase';
+import { ArticleJsonLd, NextSeo } from 'next-seo';
 
 interface ProjectPageProps {
   project: Project;
 }
 
 const ProjectPage: NextPage<ProjectPageProps> = ({ project }) => {
+  const images = [];
+  project.desktopView &&
+    images.push({
+      url: project.desktopView.asset.url,
+      width: 800,
+      height: 450,
+      alt: project.desktopView.alt,
+    });
+  project.mobileView &&
+    images.push({
+      url: project.mobileView.asset.url,
+      width: 300,
+      height: 500,
+      alt: project.mobileView.alt,
+    });
+  project.header &&
+    images.push({
+      url: project.header.asset.url,
+      width: 800,
+      height: 600,
+      alt: project.header.alt,
+    });
   return (
-    <div className="page-container">
-      <div className="flex">
-        <Prose post={project} />
-        <Sidebar>
-          <ProjectShowcase project={project} alternateTitle="View Project" linkType="published" />
-          <hr className="mb-6" />
-          <TechStack techStack={project.techStack} headerText="Tech Stack" />
-        </Sidebar>
+    <>
+      <NextSeo
+        title={project.title}
+        description={project.description}
+        canonical={`https://www.wvaviator.com/portfolio/${project.slug.current}`}
+        openGraph={{
+          type: 'website',
+          url: `https://www.wvaviator.com/portfolio/${project.slug.current}`,
+          title: project.title,
+          description: project.description,
+          images,
+        }}
+      />
+      <ArticleJsonLd
+        url={`https://www.wvaviator.com/portfolio/${project.slug.current}`}
+        title={project.title}
+        description={project.description}
+        images={images.map((image) => image.url)}
+        datePublished={project._createdAt}
+        dateModified={project._updatedAt}
+        authorName="Alexander Durham"
+        publisherName="Alexander Durham"
+        publisherLogo="https://www.wvaviator.com/images/logo.svg"
+      />
+      <div className="page-container">
+        <div className="flex">
+          <Prose post={project} />
+          <Sidebar>
+            <ProjectShowcase
+              project={project}
+              alternateTitle="View Project"
+              linkType="published"
+            />
+            <hr className="mb-6" />
+            <TechStack techStack={project.techStack} headerText="Tech Stack" />
+          </Sidebar>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
@@ -38,9 +90,27 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 			logo,
 			slug
 		},
-		header,
-        mobileView,
-        desktopView,
+		header{
+      ...,
+      asset->{
+        ...,
+        url
+      }
+    },
+    mobileView{
+      ...,
+      asset->{
+        ...,
+        url
+      }
+    },
+    desktopView{
+      ...,
+      asset->{
+        ...,
+        url
+      }
+    },
 		projectUrl,
 		githubUrl,
 		body,

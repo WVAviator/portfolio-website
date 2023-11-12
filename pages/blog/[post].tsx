@@ -4,21 +4,56 @@ import { BlogPost } from '../../types';
 import Prose from '../../components/blog/Prose';
 import Sidebar from '../../components/blog/Sidebar';
 import TechStack from '../../components/display/TechStack';
+import { ArticleJsonLd, NextSeo } from 'next-seo';
 
 interface BlogPostPageProps {
   post: BlogPost;
 }
 
 const BlogPostPage: NextPage<BlogPostPageProps> = ({ post }) => {
+  const images = [];
+  post.mainImage &&
+    images.push({
+      url: post.mainImage.asset.url,
+      width: 800,
+      height: 600,
+      alt: post.mainImage.alt,
+    });
+
   return (
-    <div className="page-container">
-      <div className="flex">
-        <Prose post={post} />
-        <Sidebar>
-          <TechStack techStack={post.relatedTechnologies} />
-        </Sidebar>
+    <>
+      <NextSeo
+        title={post.title}
+        description={post.description}
+        canonical={`https://www.wvaviator.com/blog/${post.slug.current}`}
+        openGraph={{
+          type: 'website',
+          url: `https://www.wvaviator.com/blog/${post.slug.current}`,
+          title: post.title,
+          description: post.description,
+          images,
+        }}
+      />
+      <ArticleJsonLd
+        url={`https://www.wvaviator.com/blog/${post.slug.current}`}
+        title={post.title}
+        description={post.description}
+        images={images.map((image) => image.url)}
+        datePublished={post._createdAt}
+        dateModified={post._updatedAt}
+        authorName="Alexander Durham"
+        publisherName="Alexander Durham"
+        publisherLogo="https://www.wvaviator.com/images/logo.svg"
+      />
+      <div className="page-container">
+        <div className="flex">
+          <Prose post={post} />
+          <Sidebar>
+            <TechStack techStack={post.relatedTechnologies} />
+          </Sidebar>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
@@ -34,7 +69,13 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 		},
 		relatedProjects,
 		header,
-		mainImage,
+		mainImage{
+      ...,
+      asset->{
+        ...,
+        url
+      }
+    },
 		body,
 		_updatedAt
 	}
