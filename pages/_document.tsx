@@ -7,7 +7,7 @@ export default function Document() {
         <meta charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
 
-        <link rel="icon" href="/images/icon.png" />
+        <link rel="icon" href="/images/favicon.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
