@@ -11,6 +11,15 @@ interface BlogPostPageProps {
 }
 
 const BlogPostPage: NextPage<BlogPostPageProps> = ({ post }) => {
+  const images = [];
+  post.mainImage &&
+    images.push({
+      url: post.mainImage.asset.url,
+      width: 800,
+      height: 600,
+      alt: post.mainImage.alt,
+    });
+
   return (
     <>
       <NextSeo
@@ -22,21 +31,14 @@ const BlogPostPage: NextPage<BlogPostPageProps> = ({ post }) => {
           url: `https://www.wvaviator.com/blog/${post.slug.current}`,
           title: post.title,
           description: post.description,
-          images: [
-            {
-              url: post.mainImage.asset.url,
-              width: 800,
-              height: 600,
-              alt: post.mainImage.alt,
-            },
-          ],
+          images,
         }}
       />
       <ArticleJsonLd
         url={`https://www.wvaviator.com/blog/${post.slug.current}`}
         title={post.title}
         description={post.description}
-        images={[post.mainImage.asset.url]}
+        images={images.map((image) => image.url)}
         datePublished={post._createdAt}
         dateModified={post._updatedAt}
         authorName="Alexander Durham"

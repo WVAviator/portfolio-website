@@ -15,6 +15,28 @@ interface ProjectPageProps {
 }
 
 const ProjectPage: NextPage<ProjectPageProps> = ({ project }) => {
+  const images = [];
+  project.desktopView &&
+    images.push({
+      url: project.desktopView.asset.url,
+      width: 800,
+      height: 450,
+      alt: project.desktopView.alt,
+    });
+  project.mobileView &&
+    images.push({
+      url: project.mobileView.asset.url,
+      width: 300,
+      height: 500,
+      alt: project.mobileView.alt,
+    });
+  project.header &&
+    images.push({
+      url: project.header.asset.url,
+      width: 800,
+      height: 600,
+      alt: project.header.alt,
+    });
   return (
     <>
       <NextSeo
@@ -26,37 +48,14 @@ const ProjectPage: NextPage<ProjectPageProps> = ({ project }) => {
           url: `https://www.wvaviator.com/portfolio/${project.slug.current}`,
           title: project.title,
           description: project.description,
-          images: [
-            {
-              url: project.desktopView.asset.url,
-              width: 800,
-              height: 450,
-              alt: project.desktopView.alt,
-            },
-            {
-              url: project.mobileView.asset.url,
-              width: 300,
-              height: 500,
-              alt: project.mobileView.alt,
-            },
-            {
-              url: project.header.asset.url,
-              width: 800,
-              height: 600,
-              alt: project.header.alt,
-            },
-          ],
+          images,
         }}
       />
       <ArticleJsonLd
         url={`https://www.wvaviator.com/portfolio/${project.slug.current}`}
         title={project.title}
         description={project.description}
-        images={[
-          project.desktopView.asset.url,
-          project.mobileView.asset.url,
-          project.header.asset.url,
-        ]}
+        images={images.map((image) => image.url)}
         datePublished={project._createdAt}
         dateModified={project._updatedAt}
         authorName="Alexander Durham"
