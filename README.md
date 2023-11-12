@@ -18,6 +18,6 @@ The site is built using the following technologies:
 - React
 - Typescript
 - TailwindCSS
-- Framer Motion
+- Sanity.io
 
 Site design, development, copy, and deployment by Alexander Durham (WVAviator).
