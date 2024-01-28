@@ -31,7 +31,7 @@ const HomePage: NextPage<HomePageProps> = ({ technologies, projects }) => {
       />
       <section>
         <div className="w-full flex items-center justify-center text-center">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl max-w-[40rem] mb-12 pen-drawn">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl max-w-[40rem] mb-12 pen-drawn dark:pen-drawn-dark">
             Leveraging cutting-edge technologies to deliver scalable,
             high-performance applications
           </h1>
@@ -41,7 +41,7 @@ const HomePage: NextPage<HomePageProps> = ({ technologies, projects }) => {
             <TechLogo
               key={technology.slug.current}
               technology={technology}
-              className="w-28 h-28 lg:w-36 lg:h-36"
+              className="w-28 h-28 lg:w-36 lg:h-36 dark:drop-shadow-white"
               useSVG
             />
           ))}
@@ -63,10 +63,10 @@ const HomePage: NextPage<HomePageProps> = ({ technologies, projects }) => {
           </div>
 
           <div className="flex flex-col items-center min-w-[200px]">
-            <h2 className="mb-6 text-2xl font-medium w-full text-center md:text-left pen-drawn">
+            <h2 className="mb-6 text-2xl font-medium w-full text-center md:text-left pen-drawn dark:pen-drawn-dark">
               About Me
             </h2>
-            <p className="prose">
+            <p className="prose dark:text-white">
               I am a software engineer transitioning from a career in airline
               management. I am a fast and enthusiastic learner with excellent
               creative problem-solving skills. I am passionate about full-stack
@@ -75,7 +75,7 @@ const HomePage: NextPage<HomePageProps> = ({ technologies, projects }) => {
             </p>
             <Socials
               className="mt-6 md:self-start"
-              socialClasses="w-12 h-12 md:w-8 md:h-8"
+              socialClasses="w-12 h-12 md:w-8 md:h-8 dark:drop-shadow-white"
             />
           </div>
         </FlexLayout>

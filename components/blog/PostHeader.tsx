@@ -20,11 +20,15 @@ const PostHeader: React.FC<PostHeaderProps> = ({
       <p>
         Updated <time>{formattedDate}</time>
       </p>
-      <h1 className="pen-drawn">{title}</h1>
+      <h1 className="pen-drawn dark:pen-drawn-dark font-medium">{title}</h1>
 
       <div className="relative w-100 aspect-[2] rounded shadow-md overflow-hidden not-prose">
         {headerImage && (
-          <SanityImage source={headerImage} alt={title} className="w-full h-full object-cover" />
+          <SanityImage
+            source={headerImage}
+            alt={title}
+            className="w-full h-full object-cover"
+          />
         )}
       </div>
     </div>

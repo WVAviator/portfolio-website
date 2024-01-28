@@ -61,7 +61,7 @@ const ContactForm = () => {
           setModalOpen(false);
         }}
         clickOutside={!loading}
-        className="flex flex-col justify-center items-center paper-texture w-[40ch] h-[30ch] overflow-hidden"
+        className="flex flex-col justify-center items-center paper-texture dark:paper-texture-dark w-[40ch] h-[30ch] overflow-hidden"
       >
         {loading ? (
           <div className="flex flex-col justify-start items-center gap-6">
@@ -72,14 +72,14 @@ const ContactForm = () => {
           <p>{responseMessage}</p>
         )}
       </Modal>
-      <h2 className="mb-6 text-2xl font-medium w-full text-center md:text-left pen-drawn">
+      <h2 className="mb-6 text-2xl font-medium w-full text-center md:text-left pen-drawn dark:pen-drawn-dark">
         Contact Me
       </h2>
       <form onSubmit={handleSubmit} className="space-y-4 w-[50ch] max-w-full">
         <div>
           <label
             htmlFor="email"
-            className="block mb-2 text-center md:text-left"
+            className="dark:text-white block mb-2 text-center md:text-left"
           >
             Email
           </label>
@@ -90,13 +90,13 @@ const ContactForm = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+            className="w-full px-4 py-2 dark:bg-black dark:text-white border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
           />
         </div>
         <div>
           <label
             htmlFor="message"
-            className="block mt-4 mb-2 text-center md:text-left"
+            className="block mt-4 mb-2 text-center md:text-left dark:text-white"
           >
             Message
           </label>
@@ -108,7 +108,7 @@ const ContactForm = () => {
             required
             maxLength={500}
             onChange={(e) => setMessage(e.target.value)}
-            className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+            className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm dark:text-white dark:bg-black focus:ring-indigo-500 focus:border-indigo-500"
           ></textarea>
         </div>
         <div className="flex justify-center">
