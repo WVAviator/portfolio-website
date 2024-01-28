@@ -10,7 +10,7 @@ interface ProjectHomePageProps {
 const ProjectHomePage: NextPage<ProjectHomePageProps> = ({ projects }) => {
   return (
     <div className="page-container">
-      <h1 className="text-2xl my-8">Projects</h1>
+      <h1 className="text-2xl my-8 dark:pen-drawn-dark pen-drawn">Projects</h1>
       <div className="flex flex-col gap-8">
         {projects.map((project) => (
           <ProjectPreview project={project} key={project._id} />

@@ -23,21 +23,21 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
   const variantClasses = {
     filled:
-      'bg-primary-400 hover:bg-primary-600 active:bg-primary-700 text-black ',
+      'bg-primary-400 hover:bg-primary-600 active:bg-primary-700 text-black dark:text-white',
     outlined:
-      'border border-primary-400 hover:bg-primary-400/10 active:bg-primary-500/10 text-primary-400',
+      'border border-primary-400 hover:bg-primary-400/10 active:bg-primary-500/10 text-primary-400 dark:text-white',
     ghost: 'text-primary-400 hover:bg-primary-400/10 active:bg-primary-500/10',
   };
 
   const button = (
     <div
       className={
-        `${variantClasses[variant]} transition-all duration-200 ease-in-out py-2 px-4 rounded active:scale-95 focus:ring-2 focus:ring-primary-300/50 whitespace-nowrap ` +
+        `${variantClasses[variant]} transition-all duration-200 cursor-pointer ease-in-out py-2 px-4 rounded active:scale-95 focus:ring-2 focus:ring-primary-300/50 whitespace-nowrap ` +
         className
       }
     >
       <button {...rest}>
-        <span className="flex items-center">
+        <span className="flex items-center dark:text-shadow-sm">
           {children}
 
           {endIcon &&

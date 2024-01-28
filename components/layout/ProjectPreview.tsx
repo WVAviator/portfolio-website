@@ -12,7 +12,7 @@ interface ProjectPreviewProps {
 
 const ProjectPreview: React.FC<ProjectPreviewProps> = ({ project }) => {
   return (
-    <article className="flex flex-wrap gap-10 md:flex-nowrap items-center justify-center shadow-lg bg-slate-100 py-6 md:max-h-[19rem]">
+    <article className="flex flex-wrap gap-10 md:flex-nowrap items-center justify-center md:bg-primary-50 md:rounded-md md:dark:bg-gray-600 md:shadow-lg py-6">
       <div
         className={
           'px-8 text-center md:text-left md:w-[50%] flex flex-col gap-6'
@@ -22,9 +22,13 @@ const ProjectPreview: React.FC<ProjectPreviewProps> = ({ project }) => {
           href={`/portfolio/${project.slug.current}`}
           className="md:max-w-fit"
         >
-          <h2 className="text-xl  hover:text-cyan-400">{project.title}</h2>
+          <h2 className="text-xl hover:text-cyan-400 pen-drawn dark:pen-drawn-dark">
+            {project.title}
+          </h2>
         </Link>
-        <p className="text-sm max-w-full">{project.description}</p>
+        <p className="text-sm max-w-full dark:text-white">
+          {project.description}
+        </p>
         <div className="flex flex-col md:flex-row gap-6 mx-auto md:mx-0">
           <Button
             href={project.projectUrl}
@@ -58,7 +62,9 @@ const ProjectPreview: React.FC<ProjectPreviewProps> = ({ project }) => {
             </Smartphone>
           )}
         </div>
-        <p className="text-center group-hover:text-cyan-400">Read More</p>
+        <p className="text-center group-hover:text-cyan-400 dark:text-white">
+          Read More
+        </p>
       </Link>
     </article>
   );
