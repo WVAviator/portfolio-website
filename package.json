@@ -42,8 +42,7 @@
     "react-dom": "18.2.0",
     "react-icons": "^5.0.1",
     "react-syntax-highlighter": "^15.5.0",
-    "refractor": "^4.5.0",
-    "twilio": "^3.84.1"
+    "refractor": "^4.5.0"
   },
   "devDependencies": {
     "@sanity/cli": "^3.2.3",

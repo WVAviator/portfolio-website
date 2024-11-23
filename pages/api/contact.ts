@@ -1,10 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import twilio from 'twilio';
 
-const twilioSid = process.env.TWILIO_ACCOUNT_SID;
-const twilioToken = process.env.TWILIO_AUTH_TOKEN;
-const twilioNumber = process.env.TWILIO_NUMBER;
-const myNumber = process.env.MY_PHONE_NUMBER;
+const ntfyTopic = process.env.NTFY_TOPIC;
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method !== 'POST') {
@@ -27,20 +23,20 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   try {
-    if (!twilioSid || !twilioToken || !twilioNumber || !myNumber) {
-      throw new Error('Missing Twilio credentials');
+    if (!ntfyTopic) {
+      throw new Error('Missing NTFY topic identifier.');
     }
 
-    const client = twilio(twilioSid, twilioToken);
-    const response = await client.messages.create({
-      body: `New Contact Request! Email: ${email} Message: ${message}`,
-      from: twilioNumber,
-      to: myNumber,
+    const body = `${message} || Sent from ${email}`;
+
+    const response = await fetch(`https://ntfy.sh/${ntfyTopic}`, {
+      method: 'POST',
+      body,
     });
 
     console.log(response);
 
-    if (response.errorCode) {
+    if (response.status >= 400) {
       throw new Error('Error occurred while sending message.');
     }
 
